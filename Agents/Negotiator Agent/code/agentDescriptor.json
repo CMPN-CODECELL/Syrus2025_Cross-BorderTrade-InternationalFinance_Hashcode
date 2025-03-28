@@ -1,0 +1,79 @@
+{
+  "aiPersonaIntegrationId": "financing-terms-negotiator-9166",
+  "version": "6.0.0",
+  "description": "AI Agent financing-terms-negotiator-9166 package version 6.0.0",
+  "data": {
+    "workflows": [
+      [
+        "workflows",
+        "interest-rate-negotiation-0238.json"
+      ],
+      [
+        "workflows",
+        "compliance-and-risk-checks-0238.json"
+      ],
+      [
+        "workflows",
+        "ma-negotiation-of-financing-terms-2179-primary-workflow-for-negotiation-of-financing-terms.json"
+      ],
+      [
+        "workflows",
+        "mongodb-data-extraction-6197.json"
+      ],
+      [
+        "workflows",
+        "currency-conversion-6650.json"
+      ],
+      [
+        "workflows",
+        "language-negotiation-5550.json"
+      ],
+      [
+        "workflows",
+        "loan-term-adjustments-0238.json"
+      ],
+      [
+        "workflows",
+        "payment-schedule-discussions-0238.json"
+      ],
+      [
+        "workflows",
+        "collateral-and-security-requirements-0238.json"
+      ],
+      [
+        "workflows",
+        "final-agreement-summary-0238.json"
+      ],
+      [
+        "workflows",
+        "counteroffer-management-0238.json"
+      ]
+    ],
+    "models": [
+      [
+        "models",
+        "ft:gpt-4o-mini-2024-07-18:uptiq-inc::B9SOTkM7.json"
+      ],
+      [
+        "models",
+        "azure-gpt-4o.json"
+      ],
+      [
+        "models",
+        "azure-gpt-4o-mini.json"
+      ]
+    ],
+    "miniAgents": [
+      [
+        "miniAgents",
+        "negotiation-of-financing-terms-2179.json"
+      ]
+    ],
+    "aiPersonas": [
+      [
+        "aiPersonas",
+        "financing-terms-negotiator-9166.json"
+      ]
+    ]
+  }
+}

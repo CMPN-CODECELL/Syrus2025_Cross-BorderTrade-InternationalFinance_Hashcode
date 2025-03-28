@@ -1,0 +1,24 @@
+{
+  "_id": "5662c402-0bf6-4d14-bca6-9d83a2250ca7",
+  "aiPersonaId": "41ec2463-d3ff-4eee-8394-bf0f3f641e23",
+  "integrationId": "compliance-and-risk-checks-0238",
+  "name": "Workflow for Compliance and Risk Checks",
+  "publisherAccountId": "b323c346-75fb-4ba3-be73-8aa7fd102335",
+  "startTaskId": "5928a5a0-067a-4b8e-8643-da35b2d81e0a",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "5928a5a0-067a-4b8e-8643-da35b2d81e0a",
+      "transitions": [],
+      "type": "Display",
+      "config": {
+        "name": "Display",
+        "description": "Display the response to the user",
+        "type": "text",
+        "text": "Hi there! Intent $input.intent has been matched"
+      }
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest"
+}
