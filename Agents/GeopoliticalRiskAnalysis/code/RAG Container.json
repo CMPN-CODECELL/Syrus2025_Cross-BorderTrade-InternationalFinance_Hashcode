@@ -1,0 +1,11 @@
+{
+  "_id": "ab3c0bd1-2d0a-4f3f-a2ce-03159eef82b2",
+  "enableMultishotPrompting": false,
+  "k": 5,
+  "llmId": "1630db82-5c73-4ad3-af1c-e940ba0d811f",
+  "name": "RAG Container",
+  "publisherAccountId": "3344a927-5e95-4d4b-a8d2-e900694dbb7b",
+  "status": "Active",
+  "type": "MongoDB",
+  "vectorStoreId": "a1cb9922-f85d-40d7-9320-02e22ef24216"
+}

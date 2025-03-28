@@ -1,0 +1,39 @@
+{
+  "_id": "39e6257b-909c-4568-8025-0369cffa668d",
+  "aiPersonaId": "41ec2463-d3ff-4eee-8394-bf0f3f641e23",
+  "integrationId": "negotiation-of-financing-terms-2179",
+  "intentClassification": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "intents": [
+    {
+      "_id": "interest-rate-negotiation-2179",
+      "name": "Interest Rate Negotiation",
+      "description": "Automatically proposes and adjusts interest rates based on real-time market data, risk assessments, and external factors such as currency volatility.",
+      "examples": [
+        "Can you propose a new interest rate based on current market conditions?",
+        "Adjust the interest rate considering the latest risk assessment.",
+        "What interest rate can we offer given the current currency volatility?"
+      ],
+      "flowType": "Workflow",
+      "workflowId": "f086ef26-6b5b-4c38-9916-a9ae07b2bb47"
+    },
+    {
+      "_id": "compliance-and-risk-checks-2179",
+      "name": "Compliance and Risk Checks",
+      "description": "Integrates real-time compliance verification and risk assessment into the negotiation process, ensuring all terms meet regulatory and internal criteria.",
+      "examples": [
+        "Check compliance for the proposed financing terms.",
+        "Assess risk levels for the current negotiation.",
+        "Ensure all terms meet regulatory requirements."
+      ],
+      "flowType": "Workflow",
+      "workflowId": "5662c402-0bf6-4d14-bca6-9d83a2250ca7"
+    }
+  ],
+  "name": "Negotiation of Financing Terms",
+  "primaryWorkflowId": "1b8a813e-3678-404b-a948-5561c594e2e2",
+  "publisherAccountId": "b323c346-75fb-4ba3-be73-8aa7fd102335",
+  "scope": "Handles the negotiation of financing terms between SMEs and lenders, including interest rate adjustments, loan term modifications, collateral requirements, payment schedule discussions, counteroffer management, compliance checks, and final agreement summaries.",
+  "status": "Active"
+}

@@ -1,0 +1,17 @@
+{
+  "_id": "5370e7d1-3553-4725-8544-ca2470c19a82",
+  "name": "Data Store",
+  "publisherAccountId": "3344a927-5e95-4d4b-a8d2-e900694dbb7b",
+  "metadataExtractionWorkflowId": "",
+  "filterFields": [],
+  "enablePiiMasking": false,
+  "chunkingState": {
+    "dataSources": [
+      {
+        "dataSourceId": "24ed4380-0fdf-44b0-a91c-28a84b7de2c9",
+        "state": "Processed"
+      }
+    ]
+  },
+  "status": "Active"
+}
