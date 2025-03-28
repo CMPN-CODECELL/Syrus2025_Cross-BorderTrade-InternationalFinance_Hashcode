@@ -49,6 +49,10 @@ Kubera ensures PII protection using built-in **PII Masking Mechanisms** within t
 | 🌐 **Workflow for Tariff Changes** | Tracks and updates tariff modifications.        | [🌐 GitHub](#) |
 
 ---
+###  Documentation: 
+
+- [Syrus Documentation](https://docs.google.com/document/d/1Z3bS_zWUPoLzFgCjPeYfFbB_HJ_jyIlaRdBijhP-LtA/edit?usp=sharing)  
+
 
 ## 👥 Team Members
 
