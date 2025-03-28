@@ -46,11 +46,11 @@ Kubera ensures PII protection using built-in **PII Masking Mechanisms** within t
 
 ### 🌍 **RAG QAR Table**
 
-| 🔹 **Feature**                  | 📝 **Description**                                 | 🔗 **GitHub Link**                                                                                                                 |
-| ------------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **RAG Document Generation**     | Generates trade-related insights dynamically.      | [ GitHub](https://github.com/CMPN-CODECELL/Syrus2025_Cross-BorderTrade-InternationalFinance_Hashcode/tree/main/Agents/QnA%20Agent) |
-| **Negotiation Assistance**      | Offers data-driven insights for loan negotiations. | [ GitHub](#)                                                                                                                       |
-| **Workflow for Tariff Changes** | Tracks and updates tariff modifications.           | [ GitHub](#)                                                                                                                       |
+| 🔹 **Feature**                  | 📝 **Description**                                 | 🔗 **GitHub Link**                                                                                                                        |
+| ------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **RAG Document Generation**     | Generates trade-related insights dynamically.      | [ GitHub](https://github.com/CMPN-CODECELL/Syrus2025_Cross-BorderTrade-InternationalFinance_Hashcode/tree/main/Agents/QnA%20Agent)        |
+| **Negotiation Assistance**      | Offers data-driven insights for loan negotiations. | [ GitHub](https://github.com/CMPN-CODECELL/Syrus2025_Cross-BorderTrade-InternationalFinance_Hashcode/tree/main/Agents/Negotiator%20Agent) |
+| **Workflow for Tariff Changes** | Tracks and updates tariff modifications.           | [ GitHub](https://github.com/CMPN-CODECELL/Syrus2025_Cross-BorderTrade-InternationalFinance_Hashcode/tree/main/Agents/QnA%20Agent)        |
 
 ---
 
