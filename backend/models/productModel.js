@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
-  companyId: { type: mongoose.Schema.Types.ObjectId, ref: "Company", required: true },
+  registrationNumber : String,
   name: { type: String, required: true },
   category: String,
   description: String,
@@ -46,6 +46,12 @@ const productSchema = new mongoose.Schema({
     productionDate: Date,
     batchNumber: String
   },
+  authorizedBy : [
+    {
+      name : String,
+      id : String,
+    }
+  ],
   images: [String],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }

@@ -3,21 +3,6 @@ import Company from "../models/companyModel.js";
 
 export const createProduct = async (req, res) => {
   try {
-    // Extract the registration number from the request body
-    const { registrationNumber } = req.body;
-    
-    // Look up the company using the registration number
-    const company = await Company.findOne({ registrationNumber });
-    if (!company) {
-      return res.status(404).json({ error: "Company not found with the given registration number" });
-    }
-    
-    // Assign the company's _id to the product's companyId field
-    req.body.companyId = company._id;
-    
-    // Remove the registrationNumber from the payload so it won't be stored
-    delete req.body.registrationNumber;
-    
     const newProduct = new Product(req.body);
     const savedProduct = await newProduct.save();
     res.status(201).json(savedProduct);

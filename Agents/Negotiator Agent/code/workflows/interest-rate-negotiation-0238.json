@@ -1,0 +1,432 @@
+{
+  "_id": "f086ef26-6b5b-4c38-9916-a9ae07b2bb47",
+  "aiPersonaId": "41ec2463-d3ff-4eee-8394-bf0f3f641e23",
+  "integrationId": "interest-rate-negotiation-0238",
+  "name": "Workflow for Interest Rate Negotiation",
+  "publisherAccountId": "b323c346-75fb-4ba3-be73-8aa7fd102335",
+  "startTaskId": "28988621-a302-4d13-9082-68b9e49c9776",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "28988621-a302-4d13-9082-68b9e49c9776",
+      "type": "Display",
+      "config": {
+        "description": "Display the response to the user",
+        "name": "Display",
+        "type": "text",
+        "text": "<p>The $input.intent has been matched</p>",
+        "formatVariables": [],
+        "rawText": "The $input.intent has been matched"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "28988621-a302-4d13-9082-68b9e49c9776-1743135662315",
+          "nextTask": "1743135662315"
+        }
+      ]
+    },
+    {
+      "_id": "1743135662315",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display (1)",
+        "type": "text",
+        "text": "<p><strong>Please provide the following details in one input (separated by commas):</strong></p><ul><li><p><strong>Current Interest Rate Offer (%):</strong> e.g., 5.75</p></li><li><p><strong>Borrower Credit Score:</strong> e.g., 720</p></li><li><p><strong>Annual Income:</strong> e.g., 85000</p></li><li><p><strong>Total Debt:</strong> e.g., 20000</p></li><li><p><strong>Debt-to-Income Ratio (%):</strong> e.g., 24</p></li><li><p><strong>Additional Notes:</strong> Any extra details or context about the offer</p></li></ul>",
+        "rawText": "Please provide the following details in one input (separated by commas):\n\nCurrent Interest Rate Offer (%): e.g., 5.75\n\nBorrower Credit Score: e.g., 720\n\nAnnual Income: e.g., 85000\n\nTotal Debt: e.g., 20000\n\nDebt-to-Income Ratio (%): e.g., 24\n\nAdditional Notes: Any extra details or context about the offer",
+        "formatVariables": []
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743135662315-1743135730498",
+          "nextTask": "1743135730498"
+        }
+      ]
+    },
+    {
+      "_id": "1743135730498",
+      "type": "Input",
+      "config": {
+        "description": "Take user input",
+        "name": "Input",
+        "type": "string"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743135730498-1743136207434",
+          "nextTask": "1743136207434"
+        }
+      ]
+    },
+    {
+      "_id": "1743136207434",
+      "type": "Prompt",
+      "config": {
+        "description": "Prompt for LLM",
+        "name": "Prompt",
+        "modelId": "09c3dc0d-4409-4229-b1ff-99b34a3e2e64",
+        "base64DocumentData": "",
+        "documentIds": "",
+        "responseFormat": "json",
+        "query": "$input.userInput",
+        "systemPrompt": "You are a data parser that converts comma-separated values into a JSON object. The input will be provided as a single line of text with values separated by commas, corresponding to specific financial details. Please parse the input into a JSON object with the following keys:\n\n- \"interestRate\": The current interest rate offer as a percentage (e.g., 5.75).\n- \"creditScore\": The borrower's credit score (e.g., 720).\n- \"annualIncome\": The annual income in dollars (e.g., 85000).\n- \"totalDebt\": The total debt in dollars (e.g., 20000).\n- \"debtToIncomeRatio\": The debt-to-income ratio as a percentage (e.g., 24).\n- \"additionalNotes\": Any additional notes or context about the offer (e.g., \"Long-term\").\n\nEnsure that the output is a valid JSON object without any additional text or formatting. For example:\n\n{\n  \"interestRate\": \"5.75\",\n  \"creditScore\": \"720\",\n  \"annualIncome\": \"85000\",\n  \"totalDebt\": \"20000\",\n  \"debtToIncomeRatio\": \"24\",\n  \"additionalNotes\": \"Long-term\"\n}",
+        "temperature": null
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743136207434-1743140042194",
+          "nextTask": "1743140042194"
+        }
+      ]
+    },
+    {
+      "_id": "1743137609327",
+      "type": "WebCrawler",
+      "config": {
+        "description": "Crawl web pages",
+        "name": "Web Crawler",
+        "url": "https://selectcommercial.com/commercial-mortgage-rates.php",
+        "instructions": "Navigate to the page and fetch Commercial Mortgage Rates as of March 27, 2025\nFetch Loan Type , Rate and LTV"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743137609327-1743140042194",
+          "nextTask": "1743140042194"
+        }
+      ]
+    },
+    {
+      "_id": "1743140042194",
+      "type": "Prompt",
+      "config": {
+        "description": "Prompt for LLM",
+        "name": "Prompt (1)",
+        "modelId": "56feb720-adb7-464a-8e6b-fd79a510ba5b",
+        "systemPrompt": "You are an expert financial advisor specializing in cross-border trade finance. Using the provided user input and market data, generate a detailed analysis and recommendations for the user's interest rate negotiation. Please format your response using Markdown with the following guidelines:\n\n1. **Use numbered bullet points** for each step.\n2. **Bold the main headings** for clarity (e.g., **Current Interest Rate Offer**, **Market Comparison**, etc.).\n3. For each step, include a brief explanation or actionable recommendation.\n4. Address the following aspects:\n   - **Current Interest Rate Offer**: Analyze the user's current rate.\n   - **Market Comparison**: Compare the user's rate with current market data.\n   - **Credit Profile Evaluation**: Assess the user's credit score and overall financial profile.\n   - **Negotiation Strategy**: Provide specific recommendations on whether to negotiate for a lower rate.\n   - **Counteroffer Suggestion**: Suggest a potential counteroffer rate if applicable.\n   - **Additional Considerations**: Offer any extra actionable points relevant to cross-border trade loans.\n\nYour output should be a clear, well-structured plain-text response in Markdown, with each point numbered and headings in bold.\n",
+        "base64DocumentData": "",
+        "documentIds": "",
+        "responseFormat": "text",
+        "query": "$input.content $input.extractedContent",
+        "temperature": null
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743140042194-1743140203416",
+          "nextTask": "1743140203416"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "interestNegotiate",
+          "referencePath": "$output.content"
+        }
+      ]
+    },
+    {
+      "_id": "1743140203416",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display (1)",
+        "formatVariables": [],
+        "type": "text",
+        "text": "<p><span class=\"text-inherit p-0 m-0 text-primary-dark bg-primary-light/80\" data-type=\"mention\" data-id=\"agent.interestNegotiate\">$agent.interestNegotiate</span> </p>",
+        "rawText": "$agent.interestNegotiate"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743140203416-1743166879353",
+          "nextTask": "1743166879353"
+        }
+      ]
+    },
+    {
+      "_id": "1743166879353",
+      "type": "Prompt",
+      "config": {
+        "description": "Prompt for LLM",
+        "name": "Prompt (1)",
+        "modelId": "56feb720-adb7-464a-8e6b-fd79a510ba5b",
+        "systemPrompt": "You are a financial advisor with expertise in trade finance and the Indian banking sector. Based on the user's financial information, provide clear, step-by-step strategies to:​\n​Improve financial metrics (​if current interest rates are high, credit scores are low, or debt-to-income ratios are unfavorable).​\n​Leverage strengths (​if financial metrics are favorable).​\n​Identify Indian banks offering competitive trade loan rates, including the bank name and a brief note on their rate competitiveness (e.g., \"​Bank A – offers competitive rates starting at X%\").​",
+        "base64DocumentData": "",
+        "documentIds": "",
+        "responseFormat": "text",
+        "query": "$agent.interestNegotiate",
+        "temperature": null
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743166879353-1743166893572",
+          "nextTask": "1743166893572"
+        }
+      ]
+    },
+    {
+      "_id": "1743166893572",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display (1)",
+        "type": "text",
+        "text": "<p>Strategies : </p><p><span class=\"text-inherit p-0 m-0 text-primary-dark bg-primary-light/80\" data-type=\"mention\" data-id=\"input.content\">$input.content</span></p>",
+        "rawText": "Strategies : \n\n$input.content",
+        "formatVariables": []
+      },
+      "transitions": []
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest",
+  "reactflow": {
+    "viewport": {
+      "x": 357.16080229247245,
+      "y": -23.81005526385934,
+      "zoom": 0.7171152667073639
+    },
+    "nodes": [
+      {
+        "id": "0",
+        "type": "Start",
+        "position": {
+          "x": 179.81564336429662,
+          "y": -74.94892789402041
+        },
+        "data": {},
+        "deletable": false,
+        "measured": {
+          "width": 314,
+          "height": 136
+        },
+        "selected": false
+      },
+      {
+        "position": {
+          "x": 195.81564336429665,
+          "y": 168.48320726961194
+        },
+        "type": "Display",
+        "id": "28988621-a302-4d13-9082-68b9e49c9776",
+        "data": {},
+        "measured": {
+          "width": 298,
+          "height": 78
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 595.8156433642966,
+          "y": 168.48320726961194
+        },
+        "type": "Display",
+        "id": "1743135662315",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 233.81564336429665,
+          "y": 279.944857277546
+        },
+        "type": "Input",
+        "id": "1743135730498",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 595.8156433642966,
+          "y": 279.944857277546
+        },
+        "type": "Prompt",
+        "id": "1743136207434",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 226.46652358355374,
+          "y": 413.5561615347996
+        },
+        "type": "WebCrawler",
+        "id": "1743137609327",
+        "data": {},
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 637.4606554551732,
+          "y": 531.1420780266862
+        },
+        "type": "Prompt",
+        "id": "1743140042194",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 980.5380388210145,
+          "y": 531.1420780266862
+        },
+        "type": "Display",
+        "id": "1743140203416",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 386.7500453459961,
+          "y": 699.8452402545712
+        },
+        "type": "Prompt",
+        "id": "1743166879353",
+        "data": {},
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 786.7500453459961,
+          "y": 699.8452402545712
+        },
+        "type": "Display",
+        "id": "1743166893572",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "0-28988621-a302-4d13-9082-68b9e49c9776",
+        "type": "Start",
+        "source": "0",
+        "target": "28988621-a302-4d13-9082-68b9e49c9776",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "0-source-1",
+        "targetHandle": "28988621-a302-4d13-9082-68b9e49c9776-target-1",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "28988621-a302-4d13-9082-68b9e49c9776-1743135662315",
+        "source": "28988621-a302-4d13-9082-68b9e49c9776",
+        "target": "1743135662315",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743135662315-1743135730498",
+        "source": "1743135662315",
+        "target": "1743135730498",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743135730498-1743136207434",
+        "source": "1743135730498",
+        "target": "1743136207434",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743136207434-1743140042194",
+        "source": "1743136207434",
+        "target": "1743140042194",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "1743136207434-source-1",
+        "targetHandle": "1743140042194-target-2",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743137609327-1743140042194",
+        "source": "1743137609327",
+        "target": "1743140042194",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743140042194-1743140203416",
+        "source": "1743140042194",
+        "target": "1743140203416",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743140203416-1743166879353",
+        "source": "1743140203416",
+        "target": "1743166879353",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "1743140203416-source-1",
+        "targetHandle": "1743166879353-target-2",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743166879353-1743166893572",
+        "source": "1743166879353",
+        "target": "1743166893572",
+        "selected": false
+      }
+    ]
+  }
+}

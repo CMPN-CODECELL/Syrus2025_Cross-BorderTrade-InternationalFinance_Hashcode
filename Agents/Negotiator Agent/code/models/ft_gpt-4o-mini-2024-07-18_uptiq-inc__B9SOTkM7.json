@@ -1,0 +1,54 @@
+{
+  "_id": "09c3dc0d-4409-4229-b1ff-99b34a3e2e64",
+  "name": "Banking and Lending Industry (GPT 4o mini)",
+  "description": "Fine-tuned GPT-4o mini model specialized for the lending/banking related queries.",
+  "type": "Chat",
+  "provider": "OpenAI",
+  "providerModelId": "ft:gpt-4o-mini-2024-07-18:uptiq-inc::B9SOTkM7",
+  "isJSONResponseSupported": true,
+  "isFineTunable": true,
+  "providerBaseModelId": "gpt-4o-mini-2024-07-18",
+  "trainingFileDocument": {
+    "bucketName": "samuel-ai-models-prod",
+    "storageProvider": "GoogleCloudStorage",
+    "key": "OpenAI/09c3dc0d-4409-4229-b1ff-99b34a3e2e64/training_file.jsonl"
+  },
+  "systemPrompt": "You are a lending industry specialist. Your primary responsibility is to provide accurate, detailed responses exclusively related to the lending domain, which includes financial analysis, banking operations, debt ratios, business industries, credit anylisis, payments, and similar topics within the lending field. Respond only to queries that are directly relevant to the lending and banking industry.\nFor queries that do not fall within the lending domain or lack sufficient lending-related context, your response should just inform the user that you are unable to address this question. Refrain from making assumptions about non-lending-related content, and avoid general knowledge or off-topic responses.\nUse precise, authoritative language tailored to professional and advisory contexts, suitable for clients or stakeholders seeking expertise in banking management.",
+  "price": {
+    "input": {
+      "basePrice": 0.3
+    },
+    "output": {
+      "basePrice": 1.2
+    },
+    "training": {
+      "basePrice": 3
+    }
+  },
+  "fineTuneConfig": {
+    "price": {
+      "input": {
+        "basePrice": 0.3
+      },
+      "output": {
+        "basePrice": 1.2
+      },
+      "training": {
+        "basePrice": 3
+      }
+    }
+  },
+  "outgoingRequestIdentifierQuery": "body::jsonb ->> 'model' = ft:gpt-4o-mini-2024-07-18:uptiq-inc::B9SOTkM7",
+  "creator": "OpenAI",
+  "supportedMimeTypes": [
+    "image/png",
+    "image/jpeg",
+    "image/jpg",
+    "image/webp",
+    "image/gif"
+  ],
+  "status": "Active",
+  "isFineTuned": true,
+  "onDemandProvisioning": false,
+  "supportsAssistant": true
+}
