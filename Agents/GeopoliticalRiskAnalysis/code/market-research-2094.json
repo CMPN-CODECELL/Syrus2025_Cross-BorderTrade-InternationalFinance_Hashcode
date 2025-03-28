@@ -1,0 +1,74 @@
+{
+  "_id": "284c36a0-c55d-4837-9244-b804aaceeda5",
+  "aiPersonaId": "7c839c58-1046-4a40-894f-b34dbf0e879a",
+  "integrationId": "market-research-2094",
+  "intentClassification": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "intents": [
+    {
+      "_id": "market-analysis-2094",
+      "name": "Market Analysis",
+      "description": "Analyzes market trends and opportunities for cross-border trade.",
+      "examples": [
+        "What are the current trends in the European market?",
+        "Analyze the market potential for electronics in Asia.",
+        "What are the growth opportunities in the African market?"
+      ],
+      "flowType": "Workflow",
+      "workflowId": "4acb06ae-3457-45bd-81fd-8ae2bfe47d61"
+    },
+    {
+      "_id": "product-selection-2094",
+      "name": "Product Selection",
+      "description": "Assists in selecting products suitable for export based on market demand.",
+      "examples": [
+        "Which products are in high demand in South America?",
+        "Help me choose products for export to Europe.",
+        "What are the best products to export to Asia?"
+      ],
+      "flowType": "Workflow",
+      "workflowId": "307038db-3ba5-4d51-86bb-290e8e2a96b9"
+    },
+    {
+      "_id": "risk-assessment-2094",
+      "name": "Risk Assessment",
+      "description": "Evaluates the risks associated with trading in different countries.",
+      "examples": [
+        "Assess the risk of trading with Middle Eastern countries.",
+        "What are the risks of exporting to Africa?",
+        "Evaluate the political and economic risks in South America."
+      ],
+      "flowType": "Workflow",
+      "workflowId": "4c2bdd2b-dd98-4c70-8a8c-a36ce783c777"
+    },
+    {
+      "_id": "find-buyers-2094",
+      "name": "Find Buyers",
+      "description": "Identifies potential buyers for products in target markets.",
+      "examples": [
+        "Help me find buyers for textiles in Europe.",
+        "Who are the potential buyers for electronics in Asia?",
+        "Find buyers for agricultural products in North America."
+      ],
+      "flowType": "Workflow",
+      "workflowId": "4216b8fc-67c7-45f0-98e8-f941500662a1"
+    },
+    {
+      "_id": "00dadfcd-f3e7-4c68-8b75-7b4d8d13f699",
+      "name": "Tariff Changes",
+      "description": "Tariff Changes and Geopolitical news",
+      "examples": [
+        "What are the recent changes in tariffs?",
+        "Tell me the latest geopolitical news that can affect my business."
+      ],
+      "workflowId": "6353cf48-fd56-439f-b0a1-7207a2c7a3f4",
+      "flowType": "Workflow"
+    }
+  ],
+  "name": "Market Research",
+  "primaryWorkflowId": "81599769-cc5b-46f9-8107-bb79d406767d",
+  "publisherAccountId": "3344a927-5e95-4d4b-a8d2-e900694dbb7b",
+  "scope": "Conducts market analysis, product selection, risk assessment, and identifies low-risk countries and potential buyers.",
+  "status": "Active"
+}

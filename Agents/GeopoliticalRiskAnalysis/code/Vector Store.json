@@ -1,0 +1,24 @@
+{
+  "_id": "a1cb9922-f85d-40d7-9320-02e22ef24216",
+  "publisherAccountId": "3344a927-5e95-4d4b-a8d2-e900694dbb7b",
+  "name": "Vector Store",
+  "source": "Internal",
+  "type": "MongoDB",
+  "distanceStrategy": "cosine",
+  "embedding": {
+    "model": "text-embedding-3-large",
+    "provider": "OpenAI",
+    "dimensions": 3072
+  },
+  "storeName": "vector-store-7xps1kg7zwh6",
+  "dataStoreState": {
+    "dataStoreId": "5370e7d1-3553-4725-8544-ca2470c19a82",
+    "dataSources": [
+      {
+        "dataSourceId": "24ed4380-0fdf-44b0-a91c-28a84b7de2c9",
+        "state": "Processed"
+      }
+    ]
+  },
+  "status": "Active"
+}
