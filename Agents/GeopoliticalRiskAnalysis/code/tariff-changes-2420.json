@@ -1,0 +1,319 @@
+{
+  "_id": "6353cf48-fd56-439f-b0a1-7207a2c7a3f4",
+  "aiPersonaId": "7c839c58-1046-4a40-894f-b34dbf0e879a",
+  "integrationId": "tariff-changes-2420",
+  "name": "Workflow for Tariff Changes",
+  "publisherAccountId": "3344a927-5e95-4d4b-a8d2-e900694dbb7b",
+  "startTaskId": "1743103972542",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "1743100720400",
+      "type": "APICall",
+      "config": {
+        "description": "Make an API call",
+        "name": "API Call",
+        "url": "https://gnews.io/api/v4/search?q=tariff&lang=en&country=us&max=10&apikey=05399c130ace6ce1ba57ec171c0aa733",
+        "data": "",
+        "dataFormat": "raw",
+        "rawDataFormatType": "text",
+        "headers": [],
+        "params": [],
+        "method": "GET"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "xy-edge__1743100720400-17431040000091743104000009-target-1",
+          "nextTask": "1743104000009"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "tariffApiResponse",
+          "referencePath": "$output.data"
+        }
+      ]
+    },
+    {
+      "_id": "1743103972542",
+      "type": "Loader",
+      "config": {
+        "description": "Show loading messages in conversation",
+        "name": "Loader",
+        "text": "Searching the web...."
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743103972542-1743100720400",
+          "nextTask": "1743100720400"
+        }
+      ]
+    },
+    {
+      "_id": "1743104000009",
+      "type": "Loader",
+      "config": {
+        "description": "Show loading messages in conversation",
+        "name": "Loader (1)",
+        "text": "Filtering relevant data..."
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743104000009-1743137562428",
+          "nextTask": "1743137562428"
+        }
+      ]
+    },
+    {
+      "_id": "1743137562428",
+      "type": "RAGQuery",
+      "config": {
+        "description": "Query RAG",
+        "name": "RAG Query",
+        "ragContainerId": "ab3c0bd1-2d0a-4f3f-a2ce-03159eef82b2",
+        "systemPrompt": "You are an expert in financial analysis and risk assessment, specializing in trade and tariff impacts. Your task is to retrieve relevant historical data, company-specific insights, and past economic effects related to the latest geopolitical news and tariff changes.\nfrom the latest data of geopolitical events and tariff changes, evaluate the impact it will have on my business IndiBazaar.",
+        "responseFormat": "text",
+        "query": "$agent.query",
+        "numOfConversationTurns": 5,
+        "temperature": 0.7
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743137562428-1743141812278",
+          "nextTask": "1743141812278"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "RAG_output",
+          "referencePath": "$output.content"
+        }
+      ]
+    },
+    {
+      "_id": "1743141812278",
+      "type": "Prompt",
+      "config": {
+        "description": "Prompt for LLM",
+        "name": "Prompt",
+        "modelId": "56feb720-adb7-464a-8e6b-fd79a510ba5b",
+        "systemPrompt": "Return the output in paragraph format, focus more on quantitave analysis.\nDivide the content in sections like: Geopolitical events, tariff changes, impact on your business, suggestions, etc.",
+        "base64DocumentData": "",
+        "documentIds": "",
+        "responseFormat": "text",
+        "query": "You are a cross border trade and international finance expert and advisor. From this data: $input.content $input.sources and sources, tell the user what are the latest geopolitical changes and how do they affect the user's business IndiBazaar.",
+        "temperature": null
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743141812278-1743142122030",
+          "nextTask": "1743142122030"
+        }
+      ]
+    },
+    {
+      "_id": "1743142122030",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display",
+        "formatVariables": [],
+        "type": "text",
+        "text": "<p><span class=\"text-inherit p-0 m-0 text-primary-dark bg-primary-light/80\" data-type=\"mention\" data-id=\"input.content\">$input.content</span> </p>",
+        "rawText": "$input.content"
+      },
+      "transitions": []
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest",
+  "reactflow": {
+    "viewport": {
+      "x": 389.59155767789457,
+      "y": 262.14241361106133,
+      "zoom": 0.5
+    },
+    "nodes": [
+      {
+        "id": "0",
+        "type": "Start",
+        "position": {
+          "x": 93.25239129727316,
+          "y": 215.1841258727681
+        },
+        "data": {},
+        "deletable": false,
+        "measured": {
+          "width": 320,
+          "height": 176
+        },
+        "selected": false
+      },
+      {
+        "position": {
+          "x": 933.7330632360142,
+          "y": 50.18901319396939
+        },
+        "type": "APICall",
+        "id": "1743100720400",
+        "data": {},
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 526.0326655900146,
+          "y": 50.18901319396939
+        },
+        "type": "Loader",
+        "id": "1743103972542",
+        "data": {},
+        "measured": {
+          "width": 320,
+          "height": 78
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 543.5099365072293,
+          "y": 283.2798294323259
+        },
+        "type": "Loader",
+        "id": "1743104000009",
+        "data": {},
+        "measured": {
+          "width": 320,
+          "height": 78
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 940.5852440157635,
+          "y": 283.2798294323259
+        },
+        "type": "RAGQuery",
+        "id": "1743137562428",
+        "data": {},
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1340.5852440157635,
+          "y": 283.2798294323259
+        },
+        "type": "Prompt",
+        "id": "1743141812278",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        }
+      },
+      {
+        "position": {
+          "x": 1740.5852440157635,
+          "y": 283.2798294323259
+        },
+        "type": "Display",
+        "id": "1743142122030",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "xy-edge__00-source-1-17431039725421743103972542-target-1",
+        "type": "Start",
+        "source": "0",
+        "target": "1743103972542",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "0-source-1",
+        "selected": false,
+        "targetHandle": "1743103972542-target-1"
+      },
+      {
+        "type": "Transition",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "source": "1743100720400",
+        "target": "1743104000009",
+        "selected": false,
+        "id": "xy-edge__1743100720400-17431040000091743104000009-target-1",
+        "sourceHandle": null,
+        "targetHandle": "1743104000009-target-1"
+      },
+      {
+        "type": "Transition",
+        "id": "1743103972542-1743100720400",
+        "source": "1743103972542",
+        "target": "1743100720400",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "1743103972542-source-1",
+        "targetHandle": "1743100720400-target-1",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743104000009-1743137562428",
+        "source": "1743104000009",
+        "target": "1743137562428",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "1743104000009-source-1",
+        "targetHandle": "1743137562428-target-1",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743137562428-1743141812278",
+        "source": "1743137562428",
+        "target": "1743141812278",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743141812278-1743142122030",
+        "source": "1743141812278",
+        "target": "1743142122030",
+        "selected": false
+      }
+    ]
+  }
+}
