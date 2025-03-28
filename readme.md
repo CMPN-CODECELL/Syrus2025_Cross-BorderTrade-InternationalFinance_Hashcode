@@ -23,7 +23,7 @@ To ensure authenticity, exported items undergo rigorous **authorization and veri
 - **Government-issued compliance certificates** confirm authenticity and security.
 - Advanced **tracking mechanisms** provide end-to-end visibility in international trade.
 
-![Product Certification details updated in mongoDB](images/MongoDB_update_for_certifications.jpg)
+![Product Certification details updated in mongoDB](Images/MongoDB_update_for_certifications.jpg)
 
 ### 2) How does Kubera handle Personally Identifiable Information (PII) masking?
 
