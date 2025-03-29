@@ -1,0 +1,27 @@
+{
+  "_id": "dd0afb29-3bed-4359-b737-090c2bdcb107",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "geopolitical-sentinel-analysis-3282",
+  "intentClassification": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "intents": [
+    {
+      "_id": "tariff-changes-3282",
+      "name": "Tariff Changes",
+      "description": "Provides analysis and updates on changes in tariffs and their impact on trade.",
+      "examples": [
+        "What are the recent changes in tariffs for imports from China?",
+        "How will the new trade agreement affect tariffs?",
+        "Can you update me on the latest tariff changes in the EU?"
+      ],
+      "flowType": "Workflow",
+      "workflowId": "5fe27d88-1263-4dfb-8d3e-ceacd15fb4a8"
+    }
+  ],
+  "name": "GeoPolitical Sentinel Analysis",
+  "primaryWorkflowId": "8ae37e5e-98e1-4692-99ee-fcd8be0a5710",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "scope": "Analyzes geopolitical factors affecting trade, including changes in tariffs and trade agreements.",
+  "status": "Active"
+}

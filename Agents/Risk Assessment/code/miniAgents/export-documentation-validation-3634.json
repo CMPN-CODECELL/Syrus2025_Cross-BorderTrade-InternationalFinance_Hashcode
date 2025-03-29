@@ -1,0 +1,27 @@
+{
+  "_id": "91ce3e5b-0831-4f93-b835-050862d1e701",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "export-documentation-validation-3634",
+  "intentClassification": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "intents": [
+    {
+      "_id": "validate-export-documents-3634",
+      "name": "Validate Export Documents",
+      "description": "Checks export documents for accuracy and compliance with trade regulations.",
+      "examples": [
+        "Is my export invoice compliant with EU regulations?",
+        "Can you validate my packing list for export?",
+        "Are my export documents complete and accurate?"
+      ],
+      "flowType": "Workflow",
+      "workflowId": "732c393d-af35-48f9-a9cc-3b396f807f5d"
+    }
+  ],
+  "name": "Export Documentation Validation",
+  "primaryWorkflowId": "39786fe1-5119-4314-8590-c201270975c3",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "scope": "Validates export documents to ensure compliance with international trade standards and regulations.",
+  "status": "Active"
+}

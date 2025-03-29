@@ -1,0 +1,24 @@
+{
+  "_id": "3c82c094-6c02-4f52-9683-138d914b6aa2",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "track-shipment-6484",
+  "name": "Workflow for Track Shipment",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "startTaskId": "4a7a1e68-81d5-4c09-8eab-a8b0d7c29022",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "4a7a1e68-81d5-4c09-8eab-a8b0d7c29022",
+      "transitions": [],
+      "type": "Display",
+      "config": {
+        "name": "Display",
+        "description": "Display the response to the user",
+        "type": "text",
+        "text": "Hi there! Intent $input.intent has been matched"
+      }
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest"
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "dedee579-5578-4c63-a692-ed7e4de062ef",
+  "name": "Kubera Doc Data Store",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "metadataExtractionWorkflowId": "",
+  "filterFields": [],
+  "enablePiiMasking": false,
+  "chunkingState": {
+    "dataSources": [
+      {
+        "dataSourceId": "34647dee-3c2b-43ba-8e2e-c2cc2b22b84a",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "375b221f-8773-4240-b9ac-d001285f4bec",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "8b69e4c9-a04a-4877-b96a-eec47df6e959",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "a8b35934-2eba-4acb-b40c-9051914bb0d4",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "6c9751bc-d69e-43ea-b4ae-a1b63836b3d0",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "54e3c674-fd48-44d1-b7cc-39e773961232",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "cd73fbfc-0279-451c-96fb-e2b61ce193e1",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "5bfd426c-5467-4ed8-a175-13c59508556c",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "28e95e9c-8536-4dcc-96d2-09279baa602d",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "96f7fac0-a024-450d-b7b8-cdc183a10e6c",
+        "state": "Processed"
+      },
+      {
+        "dataSourceId": "f5e2add2-8bd5-4e8d-965b-713f6c796d3c",
+        "state": "Processed"
+      }
+    ]
+  },
+  "status": "Active"
+}

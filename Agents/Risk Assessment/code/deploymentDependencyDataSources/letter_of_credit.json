@@ -1,0 +1,23 @@
+{
+  "_id": "34647dee-3c2b-43ba-8e2e-c2cc2b22b84a",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "type": "Document",
+  "config": {
+    "document": {
+      "bucketName": "developer-edition-console-prod",
+      "key": "default-app-for-account-75e042ec-6dae-4d54-978a-d420f99a50ce/data-store/dedee579-5578-4c63-a692-ed7e4de062ef/document-store/d266a265-5e98-476d-9662-44248581f6dd",
+      "storageProvider": "GoogleCloudStorage"
+    },
+    "name": "letter_of_credit",
+    "fileName": "letter_of_credit.pdf",
+    "mimeType": "application/pdf",
+    "size": 65067,
+    "chunkingParameters": {
+      "chunkingStrategy": "RecursiveCharacterSplitting",
+      "chunkSize": 1000,
+      "chunkOverlap": 200
+    }
+  },
+  "status": "Active",
+  "dataStoreName": "Kubera Doc Data Store"
+}

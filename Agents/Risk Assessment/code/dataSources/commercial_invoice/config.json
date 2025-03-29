@@ -1,0 +1,23 @@
+{
+  "_id": "6c9751bc-d69e-43ea-b4ae-a1b63836b3d0",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "type": "Document",
+  "config": {
+    "document": {
+      "bucketName": "developer-edition-console-prod",
+      "key": "default-app-for-account-75e042ec-6dae-4d54-978a-d420f99a50ce/data-store/dedee579-5578-4c63-a692-ed7e4de062ef/document-store/d3d1cff1-35b0-4920-b9e1-73a19701be25",
+      "storageProvider": "GoogleCloudStorage"
+    },
+    "name": "commercial_invoice",
+    "fileName": "commercial_invoice.pdf",
+    "mimeType": "application/pdf",
+    "size": 66540,
+    "chunkingParameters": {
+      "chunkingStrategy": "RecursiveCharacterSplitting",
+      "chunkSize": 1000,
+      "chunkOverlap": 200
+    }
+  },
+  "status": "Active",
+  "dataStoreName": "Kubera Doc Data Store"
+}

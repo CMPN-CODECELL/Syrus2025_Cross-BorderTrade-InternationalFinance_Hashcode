@@ -1,0 +1,27 @@
+{
+  "_id": "dbae04e8-e8b0-44e1-b93d-59306aeb13f0",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "negotiator-0849",
+  "intentClassification": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "intents": [
+    {
+      "_id": "interest-rate-negotiation-0849",
+      "name": "Interest Rate Negotiation",
+      "description": "Assists in negotiating interest rates for trade finance deals.",
+      "examples": [
+        "Can you help me negotiate a better interest rate for my trade loan?",
+        "What are the current interest rates for trade finance?",
+        "How do I negotiate terms of credit with my bank?"
+      ],
+      "flowType": "Workflow",
+      "workflowId": "a7c7d04a-0879-47f7-bee2-2f9a6e774077"
+    }
+  ],
+  "name": "Negotiator",
+  "primaryWorkflowId": "aa4aa078-966e-4819-94b1-bdf50ecef2a7",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "scope": "Handles negotiations related to trade finance, including interest rate discussions and terms of credit.",
+  "status": "Active"
+}

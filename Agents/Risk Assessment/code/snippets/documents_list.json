@@ -1,0 +1,7 @@
+{
+  "_id": "1ee4e044-7426-40c6-8352-fc3654425702",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "code": "// Card Input\nconst main = () => {\n    const documents = [\n        { name: \"Letter of Credit\" },\n        { name: \"Bill of Exchange\" },\n        { name: \"Certificate of Origin\" },\n        { name: \"Certificate of Origin (1)\" },\n        { name: \"Commercial Invoice\" },\n        { name: \"Packing List\" },\n        { name: \"Tax Invoice\" },\n        { name: \"Export Agreement Proforma Invoice\" },\n        { name: \"Bill of Lading\" },\n        { name: \"Export Invoice Template\" },\n        { name: \"Export Quotation Template\" }\n    ];\n\n    return {\n        options: documents.map(p => ({\n            label: p.name,\n            value: p.name\n        })),\n        type: \"cardSelect\"\n    };\n};\n\nmain();\n",
+  "name": "documents_list",
+  "status": "Active"
+}

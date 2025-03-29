@@ -1,0 +1,7 @@
+{
+  "_id": "12e2cdc2-ecd7-4193-82c3-b1725f5850d2",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "code": "// Card Input\nconst main = () => {\n    const products = input.data\n\n    return {\n        options: products.map(p => ({\n            label: p.name,\n            value: p.name,\n            subTitle: `${p.category} | ${p.price.amount} ${p.price.currency}`\n        })),\n        type: \"cardSelect\",\n        subTitleField: \"subTitle\"\n    };\n};\n\nmain()",
+  "name": "products_list",
+  "status": "Active"
+}

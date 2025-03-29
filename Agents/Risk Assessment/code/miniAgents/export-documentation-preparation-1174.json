@@ -1,0 +1,27 @@
+{
+  "_id": "cb0478e8-2058-47bd-99cc-076ba9a27f23",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "export-documentation-preparation-1174",
+  "intentClassification": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "intents": [
+    {
+      "_id": "prepare-export-document-1174",
+      "name": "Prepare Export Document",
+      "description": "Helps users prepare export documents such as invoices, packing lists, and certificates of origin.",
+      "examples": [
+        "Can you help me prepare an invoice for export?",
+        "I need a packing list for my shipment.",
+        "How do I create a certificate of origin for my goods?"
+      ],
+      "flowType": "Workflow",
+      "workflowId": "d609149f-11e1-41a9-9b78-3d32b04b483d"
+    }
+  ],
+  "name": "Export Documentation Preparation",
+  "primaryWorkflowId": "0d9e7f25-7cbc-4276-8e2a-5c65bb48ce2b",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "scope": "Assists in preparing necessary export documents, ensuring all required information is included and formatted correctly.",
+  "status": "Active"
+}

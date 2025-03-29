@@ -1,0 +1,27 @@
+{
+  "_id": "25341b94-9a8c-412f-a812-0e47bc152a27",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "compliance-and-risk-assessment-5950",
+  "intentClassification": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "intents": [
+    {
+      "_id": "assess-compliance-and-risk-5950",
+      "name": "Assess Compliance and Risk",
+      "description": "Analyzes trade transactions to ensure compliance and identify potential risks.",
+      "examples": [
+        "Is my trade transaction compliant with international laws?",
+        "What are the risks associated with exporting to this country?",
+        "Can you assess the compliance of my trade deal?"
+      ],
+      "flowType": "Workflow",
+      "workflowId": "6ca06b08-6aaf-44e4-aa06-4e5167546a9b"
+    }
+  ],
+  "name": "Compliance and Risk Assessment",
+  "primaryWorkflowId": "d63b0847-e1f3-4fc6-9277-cdb2ce8bf499",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "scope": "Evaluates trade transactions for compliance with international regulations and assesses potential risks.",
+  "status": "Active"
+}

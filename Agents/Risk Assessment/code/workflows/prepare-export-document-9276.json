@@ -1,0 +1,573 @@
+{
+  "_id": "d609149f-11e1-41a9-9b78-3d32b04b483d",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "prepare-export-document-9276",
+  "name": "Workflow for Prepare Export Document",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "startTaskId": "1743216062031",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "1743216062031",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display",
+        "formatVariables": [],
+        "type": "text",
+        "text": "<p>Hi There ! $intent.input has been matched</p><p>Please enter the registration number of your company</p>",
+        "rawText": "Hi There ! $intent.input has been matched\n\nPlease enter the registration number of your company"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743216062031-1743216104511",
+          "nextTask": "1743216104511"
+        }
+      ]
+    },
+    {
+      "_id": "1743216104511",
+      "type": "Input",
+      "config": {
+        "description": "Take user input",
+        "name": "Input",
+        "type": "string"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743216104511-1743216121806",
+          "nextTask": "1743216121806"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "registrationNumber",
+          "referencePath": "$output.userInput"
+        }
+      ]
+    },
+    {
+      "_id": "1743216121806",
+      "type": "Loader",
+      "config": {
+        "description": "Show loading messages in conversation",
+        "name": "Loader",
+        "text": "Loading your products"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743216121806-1743216141047",
+          "nextTask": "1743216141047"
+        }
+      ]
+    },
+    {
+      "_id": "1743216141047",
+      "type": "ExternalDatabase",
+      "config": {
+        "description": "Fetch data from external database",
+        "name": "External Database",
+        "type": "MongoDB",
+        "dbUri": "mongodb+srv://2021sarveshdongare:X29L9cqdRm0f9nXG@cluster0.zgs0g5q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "dbName": "test",
+        "operation": "read",
+        "operationType": "",
+        "collectionName": "products",
+        "filters": "{\"registrationNumber\" : \"$agent.registrationNumber\"}",
+        "data": "",
+        "projections": ""
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743216141047-1743216200922",
+          "nextTask": "1743216200922"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "products",
+          "referencePath": "$output.data"
+        }
+      ]
+    },
+    {
+      "_id": "1743216200922",
+      "type": "JSFunction",
+      "config": {
+        "description": "Execute JavaScript code",
+        "name": "JavaScript",
+        "snippetId": "12e2cdc2-ecd7-4193-82c3-b1725f5850d2"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743216200922-1743216219352",
+          "nextTask": "1743216219352"
+        }
+      ],
+      "globalVariables": []
+    },
+    {
+      "_id": "1743216219352",
+      "type": "Input",
+      "config": {
+        "description": "Take user input",
+        "name": "Input (1)",
+        "type": "string"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743216219352-1743217322286",
+          "nextTask": "1743217322286"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "selectedProduct",
+          "referencePath": "$output.userInput"
+        }
+      ]
+    },
+    {
+      "_id": "1743217322286",
+      "type": "ExternalDatabase",
+      "config": {
+        "description": "Fetch data from external database",
+        "name": "External Database (1)",
+        "type": "MongoDB",
+        "dbUri": "mongodb+srv://2021sarveshdongare:X29L9cqdRm0f9nXG@cluster0.zgs0g5q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "dbName": "test",
+        "operation": "read",
+        "operationType": "",
+        "collectionName": "products",
+        "filters": "{\"registrationNumber\" : \"$agent.registrationNumber\", \"name\" : \"$agent.selectedProduct\"\n}",
+        "data": "",
+        "projections": ""
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743217322286-1743217953240",
+          "nextTask": "1743217953240"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "productDetails",
+          "referencePath": "$output.data[0]"
+        }
+      ]
+    },
+    {
+      "_id": "1743217741239",
+      "type": "RAGQuery",
+      "config": {
+        "description": "Query RAG",
+        "name": "RAG Query",
+        "ragContainerId": "bc5c9f86-fb6c-44e9-8460-0d6c5612899f",
+        "systemPrompt": "As an AI assistant specializing in import and export documentation, regulations, and best practices for SMBs operating in India, your task is to generate the trade document specified in the query as $agent.selectedDocument using the provided product details in $agent.productDetails. Ensure that the generated document complies with international trade standards and includes all necessary information relevant to the product. If any required details are missing, clearly indicate the omissions and suggest the additional information needed to complete the document accurately.",
+        "responseFormat": "text",
+        "query": "$agent.productDetails $agent.selectedDocument",
+        "temperature": null
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743217741239-1743218201230",
+          "nextTask": "1743218201230"
+        }
+      ]
+    },
+    {
+      "_id": "1743217953240",
+      "type": "JSFunction",
+      "config": {
+        "description": "Execute JavaScript code",
+        "name": "JavaScript (1)",
+        "snippetId": "1ee4e044-7426-40c6-8352-fc3654425702"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743217953240-1743218159703",
+          "nextTask": "1743218159703"
+        }
+      ]
+    },
+    {
+      "_id": "1743218159703",
+      "type": "Input",
+      "config": {
+        "description": "Take user input",
+        "name": "Input (1)",
+        "type": "string"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743218159703-1743218767263",
+          "nextTask": "1743218767263"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "selectedDocument",
+          "referencePath": "$output.userInput"
+        }
+      ]
+    },
+    {
+      "_id": "1743218201230",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display (1)",
+        "formatVariables": [],
+        "type": "text",
+        "text": "<p><span class=\"text-inherit p-0 m-0 text-primary-dark bg-primary-light/80\" data-type=\"mention\" data-id=\"input.content\">$input.content</span> </p>",
+        "rawText": "$input.content"
+      },
+      "transitions": []
+    },
+    {
+      "_id": "1743218767263",
+      "type": "Loader",
+      "config": {
+        "description": "Show loading messages in conversation",
+        "name": "Loader (1)",
+        "text": "Hold on.. We are creating your document"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743218767263-1743217741239",
+          "nextTask": "1743217741239"
+        }
+      ]
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest",
+  "reactflow": {
+    "viewport": {
+      "x": 130.44596521789197,
+      "y": -99.18352546486102,
+      "zoom": 0.5743491844015328
+    },
+    "nodes": [
+      {
+        "id": "0",
+        "type": "Start",
+        "position": {
+          "x": 360,
+          "y": 400
+        },
+        "data": {},
+        "deletable": false,
+        "measured": {
+          "width": 320,
+          "height": 176
+        },
+        "selected": false
+      },
+      {
+        "position": {
+          "x": 760,
+          "y": 400
+        },
+        "type": "Display",
+        "id": "1743216062031",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        }
+      },
+      {
+        "position": {
+          "x": 1160,
+          "y": 400
+        },
+        "type": "Input",
+        "id": "1743216104511",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        }
+      },
+      {
+        "position": {
+          "x": 1495.344112760673,
+          "y": 400
+        },
+        "type": "Loader",
+        "id": "1743216121806",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 320,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1130.0295291114942,
+          "y": 582.0920905923908
+        },
+        "type": "ExternalDatabase",
+        "id": "1743216141047",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 315,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1592.0464005451345,
+          "y": 582.0920905923908
+        },
+        "type": "JSFunction",
+        "id": "1743216200922",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1245.2049275357633,
+          "y": 824.8815447155787
+        },
+        "type": "Input",
+        "id": "1743216219352",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1605.6196904504607,
+          "y": 824.8815447155787
+        },
+        "type": "ExternalDatabase",
+        "id": "1743217322286",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 315,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1420,
+          "y": 1207.5388365401684
+        },
+        "type": "RAGQuery",
+        "id": "1743217741239",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1420,
+          "y": 1013.5711748221865
+        },
+        "type": "JSFunction",
+        "id": "1743217953240",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1820,
+          "y": 1013.5711748221865
+        },
+        "type": "Input",
+        "id": "1743218159703",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1815.344112760673,
+          "y": 1207.5388365401684
+        },
+        "type": "Display",
+        "id": "1743218201230",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1030.162506014694,
+          "y": 1207.5388365401684
+        },
+        "type": "Loader",
+        "id": "1743218767263",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 320,
+          "height": 78
+        },
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "0-1743216062031",
+        "type": "Start",
+        "source": "0",
+        "target": "1743216062031",
+        "selected": false,
+        "sourceHandle": "0-source-1"
+      },
+      {
+        "type": "Transition",
+        "id": "1743216062031-1743216104511",
+        "source": "1743216062031",
+        "target": "1743216104511",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743216104511-1743216121806",
+        "source": "1743216104511",
+        "target": "1743216121806",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743216121806-1743216141047",
+        "source": "1743216121806",
+        "target": "1743216141047",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743216141047-1743216200922",
+        "source": "1743216141047",
+        "target": "1743216200922",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "1743216141047-source-1",
+        "targetHandle": "1743216200922-target-1",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743216200922-1743216219352",
+        "source": "1743216200922",
+        "target": "1743216219352",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "1743216200922-source-3",
+        "targetHandle": "1743216219352-target-2",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743216219352-1743217322286",
+        "source": "1743216219352",
+        "target": "1743217322286",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743217322286-1743217953240",
+        "source": "1743217322286",
+        "target": "1743217953240",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743217741239-1743218201230",
+        "source": "1743217741239",
+        "target": "1743218201230",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "1743217741239-source-1",
+        "targetHandle": "1743218201230-target-1",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743217953240-1743218159703",
+        "source": "1743217953240",
+        "target": "1743218159703",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743218159703-1743218767263",
+        "source": "1743218159703",
+        "target": "1743218767263",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743218767263-1743217741239",
+        "source": "1743218767263",
+        "target": "1743217741239",
+        "markerEnd": {
+          "type": "arrowclosed",
+          "width": 22,
+          "height": 22
+        },
+        "sourceHandle": "1743218767263-source-1",
+        "targetHandle": "1743217741239-target-1",
+        "selected": false
+      }
+    ]
+  }
+}

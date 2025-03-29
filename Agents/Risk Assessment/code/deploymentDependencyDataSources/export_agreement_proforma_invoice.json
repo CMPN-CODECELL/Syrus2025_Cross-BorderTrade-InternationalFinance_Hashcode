@@ -1,0 +1,23 @@
+{
+  "_id": "5bfd426c-5467-4ed8-a175-13c59508556c",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "type": "Document",
+  "config": {
+    "document": {
+      "bucketName": "developer-edition-console-prod",
+      "key": "default-app-for-account-75e042ec-6dae-4d54-978a-d420f99a50ce/data-store/dedee579-5578-4c63-a692-ed7e4de062ef/document-store/6757c6a5-e044-44bc-8f8a-511bfb108add",
+      "storageProvider": "GoogleCloudStorage"
+    },
+    "name": "export_agreement_proforma_invoice",
+    "fileName": "export_agreement_proforma_invoice.pdf",
+    "mimeType": "application/pdf",
+    "size": 69420,
+    "chunkingParameters": {
+      "chunkingStrategy": "RecursiveCharacterSplitting",
+      "chunkSize": 1000,
+      "chunkOverlap": 200
+    }
+  },
+  "status": "Active",
+  "dataStoreName": "Kubera Doc Data Store"
+}

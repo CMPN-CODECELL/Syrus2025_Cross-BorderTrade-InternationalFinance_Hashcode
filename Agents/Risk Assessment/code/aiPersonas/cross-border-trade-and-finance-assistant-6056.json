@@ -1,0 +1,241 @@
+{
+  "_id": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "inferenceEngine": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "integrationId": "cross-border-trade-and-finance-assistant-6056",
+  "integrations": {},
+  "intentClassification": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "name": "Cross Border Trade and Finance Assistant",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "status": "Active",
+  "useAsChatbot": true,
+  "variables": {
+    "secrets": [],
+    "agent": [
+      "exportCountry",
+      "registrationNumber",
+      "comapnyData",
+      "destinationCountry",
+      "products",
+      "selectedProduct",
+      "productDetails",
+      "selectedDocument"
+    ]
+  },
+  "miniAgentIds": [
+    "8c2dc852-a01b-4363-a23b-1b3c0ea5cad1",
+    "cb0478e8-2058-47bd-99cc-076ba9a27f23",
+    "91ce3e5b-0831-4f93-b835-050862d1e701",
+    "25341b94-9a8c-412f-a812-0e47bc152a27",
+    "d7890470-eed5-4503-aa11-6133461b6d3a",
+    "dbae04e8-e8b0-44e1-b93d-59306aeb13f0",
+    "dd0afb29-3bed-4359-b737-090c2bdcb107"
+  ],
+  "miniAgents": [
+    {
+      "_id": "dd0afb29-3bed-4359-b737-090c2bdcb107",
+      "integrationId": "geopolitical-sentinel-analysis-3282",
+      "intents": [
+        {
+          "_id": "tariff-changes-3282",
+          "name": "Tariff Changes",
+          "description": "Provides analysis and updates on changes in tariffs and their impact on trade.",
+          "examples": [
+            "What are the recent changes in tariffs for imports from China?",
+            "How will the new trade agreement affect tariffs?",
+            "Can you update me on the latest tariff changes in the EU?"
+          ],
+          "flowType": "Workflow",
+          "workflowId": "5fe27d88-1263-4dfb-8d3e-ceacd15fb4a8"
+        }
+      ],
+      "name": "GeoPolitical Sentinel Analysis",
+      "scope": "Analyzes geopolitical factors affecting trade, including changes in tariffs and trade agreements.",
+      "miniAgentId": "dd0afb29-3bed-4359-b737-090c2bdcb107"
+    },
+    {
+      "_id": "dbae04e8-e8b0-44e1-b93d-59306aeb13f0",
+      "integrationId": "negotiator-0849",
+      "intents": [
+        {
+          "_id": "interest-rate-negotiation-0849",
+          "name": "Interest Rate Negotiation",
+          "description": "Assists in negotiating interest rates for trade finance deals.",
+          "examples": [
+            "Can you help me negotiate a better interest rate for my trade loan?",
+            "What are the current interest rates for trade finance?",
+            "How do I negotiate terms of credit with my bank?"
+          ],
+          "flowType": "Workflow",
+          "workflowId": "a7c7d04a-0879-47f7-bee2-2f9a6e774077"
+        }
+      ],
+      "name": "Negotiator",
+      "scope": "Handles negotiations related to trade finance, including interest rate discussions and terms of credit.",
+      "miniAgentId": "dbae04e8-e8b0-44e1-b93d-59306aeb13f0"
+    },
+    {
+      "_id": "d7890470-eed5-4503-aa11-6133461b6d3a",
+      "integrationId": "logistic-and-shipment-tracking-8516",
+      "intents": [
+        {
+          "_id": "plan-shipment-8516",
+          "name": "Plan Shipment",
+          "description": "Assists in planning the logistics of a shipment, including selecting carriers and scheduling deliveries.",
+          "examples": [
+            "Can you help me plan my shipment to Europe?",
+            "What are the best carriers for shipping electronics?",
+            "How do I schedule a delivery for my goods?"
+          ],
+          "flowType": "Workflow",
+          "workflowId": "a4ccfc12-2fbd-49c0-8a02-c7b5cce1a9d3"
+        },
+        {
+          "_id": "track-shipment-8516",
+          "name": "Track Shipment",
+          "description": "Provides real-time tracking information for shipments and updates on delivery status.",
+          "examples": [
+            "Where is my shipment currently located?",
+            "Can you track my package to the US?",
+            "What is the expected delivery date for my goods?"
+          ],
+          "flowType": "Workflow",
+          "workflowId": "3c82c094-6c02-4f52-9683-138d914b6aa2"
+        }
+      ],
+      "name": "Logistic and Shipment Tracking",
+      "scope": "Manages logistics planning and tracks shipments to ensure timely delivery and resolve any issues.",
+      "miniAgentId": "d7890470-eed5-4503-aa11-6133461b6d3a"
+    },
+    {
+      "_id": "25341b94-9a8c-412f-a812-0e47bc152a27",
+      "integrationId": "compliance-and-risk-assessment-5950",
+      "intents": [
+        {
+          "_id": "assess-compliance-and-risk-5950",
+          "name": "Assess Compliance and Risk",
+          "description": "Analyzes trade transactions to ensure compliance and identify potential risks.",
+          "examples": [
+            "Is my trade transaction compliant with international laws?",
+            "What are the risks associated with exporting to this country?",
+            "Can you assess the compliance of my trade deal?"
+          ],
+          "flowType": "Workflow",
+          "workflowId": "6ca06b08-6aaf-44e4-aa06-4e5167546a9b"
+        }
+      ],
+      "name": "Compliance and Risk Assessment",
+      "scope": "Evaluates trade transactions for compliance with international regulations and assesses potential risks.",
+      "miniAgentId": "25341b94-9a8c-412f-a812-0e47bc152a27"
+    },
+    {
+      "_id": "91ce3e5b-0831-4f93-b835-050862d1e701",
+      "integrationId": "export-documentation-validation-3634",
+      "intents": [
+        {
+          "_id": "validate-export-documents-3634",
+          "name": "Validate Export Documents",
+          "description": "Checks export documents for accuracy and compliance with trade regulations.",
+          "examples": [
+            "Is my export invoice compliant with EU regulations?",
+            "Can you validate my packing list for export?",
+            "Are my export documents complete and accurate?"
+          ],
+          "flowType": "Workflow",
+          "workflowId": "732c393d-af35-48f9-a9cc-3b396f807f5d"
+        }
+      ],
+      "name": "Export Documentation Validation",
+      "scope": "Validates export documents to ensure compliance with international trade standards and regulations.",
+      "miniAgentId": "91ce3e5b-0831-4f93-b835-050862d1e701"
+    },
+    {
+      "_id": "cb0478e8-2058-47bd-99cc-076ba9a27f23",
+      "integrationId": "export-documentation-preparation-1174",
+      "intents": [
+        {
+          "_id": "prepare-export-document-1174",
+          "name": "Prepare Export Document",
+          "description": "Helps users prepare export documents such as invoices, packing lists, and certificates of origin.",
+          "examples": [
+            "Can you help me prepare an invoice for export?",
+            "I need a packing list for my shipment.",
+            "How do I create a certificate of origin for my goods?"
+          ],
+          "flowType": "Workflow",
+          "workflowId": "d609149f-11e1-41a9-9b78-3d32b04b483d"
+        }
+      ],
+      "name": "Export Documentation Preparation",
+      "scope": "Assists in preparing necessary export documents, ensuring all required information is included and formatted correctly.",
+      "miniAgentId": "cb0478e8-2058-47bd-99cc-076ba9a27f23"
+    },
+    {
+      "_id": "8c2dc852-a01b-4363-a23b-1b3c0ea5cad1",
+      "integrationId": "query-response-8597",
+      "intents": [
+        {
+          "_id": "answer-trade-questions-8597",
+          "name": "Answer Trade Questions",
+          "description": "Provides answers to user queries about trade regulations, tariffs, market conditions, and other trade-related information.",
+          "examples": [
+            "What are the current tariffs for exporting goods to the EU?",
+            "Can you provide information on trade regulations in China?",
+            "What are the market conditions for electronics in South America?"
+          ],
+          "flowType": "Workflow",
+          "workflowId": "4bd9d950-d3b4-4c04-b7b6-9bdc41583300"
+        }
+      ],
+      "name": "Query Response",
+      "scope": "Handles queries related to answering trade-related questions, providing information on trade regulations, tariffs, and market conditions.",
+      "miniAgentId": "8c2dc852-a01b-4363-a23b-1b3c0ea5cad1"
+    }
+  ],
+  "rags": [],
+  "intentWorkflows": [
+    {
+      "_id": "3c82c094-6c02-4f52-9683-138d914b6aa2",
+      "integrationId": "track-shipment-6484",
+      "name": "Workflow for Track Shipment"
+    },
+    {
+      "_id": "4bd9d950-d3b4-4c04-b7b6-9bdc41583300",
+      "integrationId": "answer-trade-questions-6793",
+      "name": "Workflow for Answer Trade Questions"
+    },
+    {
+      "_id": "5fe27d88-1263-4dfb-8d3e-ceacd15fb4a8",
+      "integrationId": "tariff-changes-1471",
+      "name": "Workflow for Tariff Changes"
+    },
+    {
+      "_id": "6ca06b08-6aaf-44e4-aa06-4e5167546a9b",
+      "integrationId": "assess-compliance-and-risk-4157",
+      "name": "Workflow for Assess Compliance and Risk"
+    },
+    {
+      "_id": "732c393d-af35-48f9-a9cc-3b396f807f5d",
+      "integrationId": "validate-export-documents-1587",
+      "name": "Workflow for Validate Export Documents"
+    },
+    {
+      "_id": "a4ccfc12-2fbd-49c0-8a02-c7b5cce1a9d3",
+      "integrationId": "plan-shipment-6484",
+      "name": "Workflow for Plan Shipment"
+    },
+    {
+      "_id": "a7c7d04a-0879-47f7-bee2-2f9a6e774077",
+      "integrationId": "interest-rate-negotiation-8924",
+      "name": "Workflow for Interest Rate Negotiation"
+    },
+    {
+      "_id": "d609149f-11e1-41a9-9b78-3d32b04b483d",
+      "integrationId": "prepare-export-document-9276",
+      "name": "Workflow for Prepare Export Document"
+    }
+  ]
+}

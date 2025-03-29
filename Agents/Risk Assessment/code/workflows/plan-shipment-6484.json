@@ -1,0 +1,24 @@
+{
+  "_id": "a4ccfc12-2fbd-49c0-8a02-c7b5cce1a9d3",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "plan-shipment-6484",
+  "name": "Workflow for Plan Shipment",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "startTaskId": "e4c2ba8d-8830-4b13-a765-ff32faafe172",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "e4c2ba8d-8830-4b13-a765-ff32faafe172",
+      "transitions": [],
+      "type": "Display",
+      "config": {
+        "name": "Display",
+        "description": "Display the response to the user",
+        "type": "text",
+        "text": "Hi there! Intent $input.intent has been matched"
+      }
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest"
+}

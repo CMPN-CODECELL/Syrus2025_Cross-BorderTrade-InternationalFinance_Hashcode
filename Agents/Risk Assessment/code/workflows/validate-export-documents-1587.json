@@ -1,0 +1,24 @@
+{
+  "_id": "732c393d-af35-48f9-a9cc-3b396f807f5d",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "validate-export-documents-1587",
+  "name": "Workflow for Validate Export Documents",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "startTaskId": "0e081274-abee-4e1a-a0cd-886686db38dc",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "0e081274-abee-4e1a-a0cd-886686db38dc",
+      "transitions": [],
+      "type": "Display",
+      "config": {
+        "name": "Display",
+        "description": "Display the response to the user",
+        "type": "text",
+        "text": "Hi there! Intent $input.intent has been matched"
+      }
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest"
+}

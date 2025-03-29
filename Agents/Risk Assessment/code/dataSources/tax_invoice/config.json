@@ -1,0 +1,23 @@
+{
+  "_id": "cd73fbfc-0279-451c-96fb-e2b61ce193e1",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "type": "Document",
+  "config": {
+    "document": {
+      "bucketName": "developer-edition-console-prod",
+      "key": "default-app-for-account-75e042ec-6dae-4d54-978a-d420f99a50ce/data-store/dedee579-5578-4c63-a692-ed7e4de062ef/document-store/1f975b01-56bc-46fb-b01d-aaf7c30d7885",
+      "storageProvider": "GoogleCloudStorage"
+    },
+    "name": "tax_invoice",
+    "fileName": "tax_invoice.pdf",
+    "mimeType": "application/pdf",
+    "size": 87246,
+    "chunkingParameters": {
+      "chunkingStrategy": "RecursiveCharacterSplitting",
+      "chunkSize": 1000,
+      "chunkOverlap": 200
+    }
+  },
+  "status": "Active",
+  "dataStoreName": "Kubera Doc Data Store"
+}

@@ -1,0 +1,24 @@
+{
+  "_id": "5fe27d88-1263-4dfb-8d3e-ceacd15fb4a8",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "tariff-changes-1471",
+  "name": "Workflow for Tariff Changes",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "startTaskId": "68c7028d-e1bd-4d59-8492-170acfab8e7c",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "68c7028d-e1bd-4d59-8492-170acfab8e7c",
+      "transitions": [],
+      "type": "Display",
+      "config": {
+        "name": "Display",
+        "description": "Display the response to the user",
+        "type": "text",
+        "text": "Hi there! Intent $input.intent has been matched"
+      }
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest"
+}

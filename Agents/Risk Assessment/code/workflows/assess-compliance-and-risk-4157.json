@@ -1,0 +1,454 @@
+{
+  "_id": "6ca06b08-6aaf-44e4-aa06-4e5167546a9b",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "assess-compliance-and-risk-4157",
+  "name": "Workflow for Assess Compliance and Risk",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "startTaskId": "1743219531727",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "1743219531727",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display",
+        "formatVariables": [],
+        "type": "text",
+        "text": "<p>Hi there! $input.intent has been matched</p>",
+        "rawText": "Hi there! $input.intent has been matched"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743219531727-1743219602810",
+          "nextTask": "1743219602810"
+        }
+      ]
+    },
+    {
+      "_id": "1743219602810",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display (1)",
+        "formatVariables": [],
+        "type": "text",
+        "text": "<p>Please enter the registration number of your company</p>",
+        "rawText": "Please enter the registration number of your company"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743219602810-1743219637328",
+          "nextTask": "1743219637328"
+        }
+      ]
+    },
+    {
+      "_id": "1743219637328",
+      "type": "Input",
+      "config": {
+        "description": "Take user input",
+        "name": "Input",
+        "type": "string"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743219637328-1743219710631",
+          "nextTask": "1743219710631"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "registrationNumber",
+          "referencePath": "$output.userInput"
+        }
+      ]
+    },
+    {
+      "_id": "1743219710631",
+      "type": "Loader",
+      "config": {
+        "description": "Show loading messages in conversation",
+        "name": "Loader",
+        "text": "Wait.... Fetching your company details"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743219710631-1743219727935",
+          "nextTask": "1743219727935"
+        }
+      ]
+    },
+    {
+      "_id": "1743219727935",
+      "type": "ExternalDatabase",
+      "config": {
+        "description": "Fetch data from external database",
+        "name": "External Database",
+        "type": "MongoDB",
+        "dbUri": "mongodb+srv://2021sarveshdongare:X29L9cqdRm0f9nXG@cluster0.zgs0g5q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "dbName": "test",
+        "operation": "read",
+        "operationType": "",
+        "collectionName": "companies",
+        "filters": "{\"registrationNumber\" : \"$agent.registrationNumber\"}",
+        "data": "",
+        "projections": ""
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743219727935-1743219820849",
+          "nextTask": "1743219820849"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "comapnyData",
+          "referencePath": "$output.data[0]"
+        }
+      ]
+    },
+    {
+      "_id": "1743219820849",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display (1)",
+        "formatVariables": [],
+        "type": "text",
+        "text": "<p>Please enter the country you want to export to..</p>",
+        "rawText": "Please enter the country you want to export to.."
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743219820849-1743219839472",
+          "nextTask": "1743219839472"
+        }
+      ]
+    },
+    {
+      "_id": "1743219839472",
+      "type": "Input",
+      "config": {
+        "description": "Take user input",
+        "name": "Input (1)",
+        "type": "string"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743219839472-1743219865463",
+          "nextTask": "1743219865463"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "destinationCountry",
+          "referencePath": "$output.userInput"
+        }
+      ]
+    },
+    {
+      "_id": "1743219865463",
+      "type": "Loader",
+      "config": {
+        "description": "Show loading messages in conversation",
+        "name": "Loader (1)",
+        "text": "Hang in... Doing risk assessment and evaluation"
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743219865463-1743219893839",
+          "nextTask": "1743219893839"
+        }
+      ]
+    },
+    {
+      "_id": "1743219893839",
+      "type": "Prompt",
+      "config": {
+        "description": "Prompt for LLM",
+        "name": "Prompt",
+        "modelId": "56feb720-adb7-464a-8e6b-fd79a510ba5b",
+        "systemPrompt": "You are an AI assistant specializing in international trade risk assessment. Your task is to evaluate the risks associated with exporting goods from a specified home country to a specified destination country. For each assessment, perform the following steps:​\nFirst write Risk assessment of exporting from home country given in query as $agent.companyData.address.country to destination country given in query as $agent.destinationCountry\nAnalyze Bilateral Relations: Examine the current and historical political, economic, and trade relationships between the home country and the destination country. Consider factors such as diplomatic ties, existing trade agreements, trade barriers, and any sanctions or restrictions that may impact export activities.​\nRisk Evaluation: Assess the potential risks involved in exporting goods from the home country to the destination country based on the analysis of bilateral relations. Assign a risk percentage indicating the overall export risk.​\nJustification: Provide a detailed explanation supporting the assigned risk percentage, highlighting key factors influencing the assessment, such as recent political events, economic policies, or changes in trade regulations.​\nAlternative Recommendations: If the risk assessment indicates high export risks, suggest other destination countries with more favorable trade relations and lower export risks from the home country. Consider factors such as stable diplomatic relations, beneficial trade agreements, and minimal regulatory barriers.​\nEnsure that all information is current and sourced from reliable international trade databases and economic reports. Present the findings in a clear and structured format to assist businesses in making informed export decisions.",
+        "base64DocumentData": "",
+        "documentIds": "",
+        "responseFormat": "text",
+        "query": "$agent.comapnyData.address.country $agent.destinationCountry ",
+        "temperature": null
+      },
+      "transitions": [
+        {
+          "name": "Default",
+          "_id": "1743219893839-1743220100728",
+          "nextTask": "1743220100728"
+        }
+      ]
+    },
+    {
+      "_id": "1743220100728",
+      "type": "Display",
+      "config": {
+        "description": "Show data",
+        "name": "Display (1)",
+        "formatVariables": [],
+        "type": "text",
+        "text": "<p><span class=\"text-inherit p-0 m-0 text-primary-dark bg-primary-light/80\" data-type=\"mention\" data-id=\"input.content\">$input.content</span> </p>",
+        "rawText": "$input.content"
+      },
+      "transitions": []
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest",
+  "reactflow": {
+    "viewport": {
+      "x": 294.3647232040802,
+      "y": 102.10252579937057,
+      "zoom": 0.574349175772763
+    },
+    "nodes": [
+      {
+        "id": "0",
+        "type": "Start",
+        "position": {
+          "x": 326,
+          "y": 70
+        },
+        "data": {},
+        "deletable": false,
+        "measured": {
+          "width": 320,
+          "height": 176
+        },
+        "selected": false
+      },
+      {
+        "position": {
+          "x": 736.4466067909425,
+          "y": 70
+        },
+        "type": "Display",
+        "id": "1743219531727",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1126,
+          "y": 70
+        },
+        "type": "Display",
+        "id": "1743219602810",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        }
+      },
+      {
+        "position": {
+          "x": 1126,
+          "y": 196.67275867296752
+        },
+        "type": "Input",
+        "id": "1743219637328",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1102.4379631872648,
+          "y": 314.1089620260311
+        },
+        "type": "Loader",
+        "id": "1743219710631",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 320,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 433.4018843082064,
+          "y": 425.5394327886691
+        },
+        "type": "ExternalDatabase",
+        "id": "1743219727935",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 315,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 833.4018843082064,
+          "y": 425.5394327886691
+        },
+        "type": "Display",
+        "id": "1743219820849",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        }
+      },
+      {
+        "position": {
+          "x": 646,
+          "y": 541.5579680377789
+        },
+        "type": "Input",
+        "id": "1743219839472",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1046,
+          "y": 541.5579680377789
+        },
+        "type": "Loader",
+        "id": "1743219865463",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 320,
+          "height": 78
+        }
+      },
+      {
+        "position": {
+          "x": 646,
+          "y": 675.9556771877377
+        },
+        "type": "Prompt",
+        "id": "1743219893839",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        },
+        "dragging": false
+      },
+      {
+        "position": {
+          "x": 1046,
+          "y": 675.9556771877377
+        },
+        "type": "Display",
+        "id": "1743220100728",
+        "data": {},
+        "selected": false,
+        "measured": {
+          "width": 260,
+          "height": 78
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "0-1743219531727",
+        "type": "Start",
+        "source": "0",
+        "target": "1743219531727",
+        "selected": false,
+        "sourceHandle": "0-source-1"
+      },
+      {
+        "type": "Transition",
+        "id": "1743219531727-1743219602810",
+        "source": "1743219531727",
+        "target": "1743219602810",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743219602810-1743219637328",
+        "source": "1743219602810",
+        "target": "1743219637328",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743219637328-1743219710631",
+        "source": "1743219637328",
+        "target": "1743219710631",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743219710631-1743219727935",
+        "source": "1743219710631",
+        "target": "1743219727935",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743219727935-1743219820849",
+        "source": "1743219727935",
+        "target": "1743219820849",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743219820849-1743219839472",
+        "source": "1743219820849",
+        "target": "1743219839472",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743219839472-1743219865463",
+        "source": "1743219839472",
+        "target": "1743219865463",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743219865463-1743219893839",
+        "source": "1743219865463",
+        "target": "1743219893839",
+        "selected": false
+      },
+      {
+        "type": "Transition",
+        "id": "1743219893839-1743220100728",
+        "source": "1743219893839",
+        "target": "1743220100728",
+        "selected": false
+      }
+    ]
+  }
+}

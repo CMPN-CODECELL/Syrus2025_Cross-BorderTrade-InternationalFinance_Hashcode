@@ -1,0 +1,337 @@
+{
+  "_id": "d6fecf75-e000-4595-a375-24e55ef99f67",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "ma-logistic-and-shipment-tracking-8516-primary-workflow-for-logistic-and-shipment-tracking",
+  "isMiniAgentPrimaryWorkflow": true,
+  "name": "Primary Workflow for Logistic and Shipment Tracking",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "startTaskId": "5b80b555-cc32-4501-a2b2-c0f5c6b12da4",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "5b80b555-cc32-4501-a2b2-c0f5c6b12da4",
+      "type": "PassThrough",
+      "config": {
+        "name": "Pass Through",
+        "description": "Pass through the input to the output"
+      },
+      "transitions": [
+        {
+          "_id": "0debee55-338c-4ea7-98ed-7a908302511f-5b80b555-cc32-4501-a2b2-c0f5c6b12da4",
+          "nextTask": "0debee55-338c-4ea7-98ed-7a908302511f",
+          "name": "If query doesnt exists",
+          "rules": [
+            {
+              "type": "any",
+              "operator": "notExists",
+              "path": "$output.query"
+            }
+          ]
+        },
+        {
+          "_id": "b6779931-a8bd-4348-9368-c2e34e836e3f-5b80b555-cc32-4501-a2b2-c0f5c6b12da4",
+          "nextTask": "b6779931-a8bd-4348-9368-c2e34e836e3f",
+          "name": "If intents are already classified",
+          "rules": [
+            {
+              "type": "any",
+              "operator": "exists",
+              "path": "$output.intents"
+            },
+            {
+              "type": "any",
+              "operator": "exists",
+              "path": "$output.query"
+            }
+          ]
+        },
+        {
+          "_id": "5b80b555-cc32-4501-a2b2-c0f5c6b12da4-f9a65d33-cb74-40ac-8caa-2ea41d76a514",
+          "name": "If query exists",
+          "nextTask": "f9a65d33-cb74-40ac-8caa-2ea41d76a514",
+          "rules": [
+            {
+              "type": "any",
+              "operator": "exists",
+              "path": "$output.query"
+            },
+            {
+              "type": "any",
+              "operator": "notExists",
+              "path": "$output.intents"
+            }
+          ]
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "query",
+          "referencePath": "$input.query"
+        },
+        {
+          "name": "rawQuery",
+          "referencePath": "$input.rawQuery"
+        },
+        {
+          "name": "conversationId",
+          "referencePath": "$input.conversationId"
+        }
+      ]
+    },
+    {
+      "_id": "0debee55-338c-4ea7-98ed-7a908302511f",
+      "type": "Input",
+      "config": {
+        "name": "User Input",
+        "description": "Get user input",
+        "type": "string"
+      },
+      "transitions": [
+        {
+          "_id": "0debee55-338c-4ea7-98ed-7a908302511f-f9a65d33-cb74-40ac-8caa-2ea41d76a514",
+          "name": "Default",
+          "nextTask": "f9a65d33-cb74-40ac-8caa-2ea41d76a514"
+        }
+      ],
+      "globalVariables": [
+        {
+          "name": "query",
+          "referencePath": "$output.userInput"
+        },
+        {
+          "name": "rawQuery",
+          "referencePath": "$output.userInput"
+        },
+        {
+          "name": "selfLoopMiniAgent",
+          "referencePath": "true"
+        }
+      ]
+    },
+    {
+      "_id": "f9a65d33-cb74-40ac-8caa-2ea41d76a514",
+      "type": "Loader",
+      "config": {
+        "name": "Loader",
+        "description": "Display loader message",
+        "type": "loader",
+        "text": "Just a moment... identifying the best approach to assist you."
+      },
+      "transitions": [
+        {
+          "_id": "f9a65d33-cb74-40ac-8caa-2ea41d76a514-a7109d1b-a55d-4582-9f4e-5c74bcab6d6f",
+          "name": "Default",
+          "nextTask": "a7109d1b-a55d-4582-9f4e-5c74bcab6d6f"
+        }
+      ]
+    },
+    {
+      "_id": "a7109d1b-a55d-4582-9f4e-5c74bcab6d6f",
+      "type": "IntentClassification",
+      "config": {
+        "name": "Intent Classification",
+        "description": "Classify the intent of the user message",
+        "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b",
+        "intents": [
+          {
+            "name": "Plan Shipment",
+            "description": "Assists in planning the logistics of a shipment, including selecting carriers and scheduling deliveries.",
+            "examples": [
+              "Can you help me plan my shipment to Europe?",
+              "What are the best carriers for shipping electronics?",
+              "How do I schedule a delivery for my goods?"
+            ]
+          },
+          {
+            "name": "Track Shipment",
+            "description": "Provides real-time tracking information for shipments and updates on delivery status.",
+            "examples": [
+              "Where is my shipment currently located?",
+              "Can you track my package to the US?",
+              "What is the expected delivery date for my goods?"
+            ]
+          }
+        ],
+        "query": "$agent.query"
+      },
+      "transitions": [
+        {
+          "_id": "a7109d1b-a55d-4582-9f4e-5c74bcab6d6f-b6779931-a8bd-4348-9368-c2e34e836e3f",
+          "name": "If Intent is Matched",
+          "rules": [
+            {
+              "type": "string",
+              "operator": "equal",
+              "path": "$output.intentMatched",
+              "value": "true"
+            }
+          ],
+          "nextTask": "b6779931-a8bd-4348-9368-c2e34e836e3f"
+        },
+        {
+          "_id": "a7109d1b-a55d-4582-9f4e-5c74bcab6d6f-d55a2962-52d3-427e-a442-69be2d7d64fc",
+          "name": "If No Intent is Matched",
+          "rules": [
+            {
+              "type": "string",
+              "operator": "equal",
+              "path": "$output.intentMatched",
+              "value": "false"
+            }
+          ],
+          "nextTask": "d55a2962-52d3-427e-a442-69be2d7d64fc"
+        }
+      ]
+    },
+    {
+      "_id": "b6779931-a8bd-4348-9368-c2e34e836e3f",
+      "type": "JSFunction",
+      "config": {
+        "name": "JS Function",
+        "description": "Execute JS function",
+        "code": "\nconst main = () => {\n    const currentExecutionId = _id;\n    const intents = agent?.icIntents?.[currentExecutionId] || input.intents;\n    const currentIndex = agent?.icLoopIndexes?.[currentExecutionId] || 0;\n    const currentIntent = intents[currentIndex] || {};\n    const { intent, task } = currentIntent;\n    const state = currentIndex === intents.length ? 'end' : 'continue'\n    const icLoopIndexes = { ...(agent?.icLoopIndexes || {}), [_id]: state === 'end' ? undefined : currentIndex + 1 };\n    const icIntents = { ...(agent?.icIntents || {}), [_id]: state === 'end' ? undefined : intents };\n    return { ...input, intent, state: currentIndex === intents.length ? 'end' : 'continue', icLoopIndexes, icIntents, query: task };\n};\n\nmain()\n"
+      },
+      "globalVariables": [
+        {
+          "referencePath": "$output.icLoopIndexes",
+          "name": "icLoopIndexes"
+        },
+        {
+          "referencePath": "$output.icIntents",
+          "name": "icIntents"
+        }
+      ],
+      "transitions": [
+        {
+          "_id": "b6779931-a8bd-4348-9368-c2e34e836e3f-d4b960ce-7b8c-4845-ac11-390d9961a53d",
+          "name": "If Intent is Matched",
+          "rules": [
+            {
+              "type": "string",
+              "operator": "equal",
+              "path": "$output.intent",
+              "value": "Plan Shipment"
+            }
+          ],
+          "nextTask": "d4b960ce-7b8c-4845-ac11-390d9961a53d"
+        },
+        {
+          "_id": "b6779931-a8bd-4348-9368-c2e34e836e3f-d8f862f8-f4c0-4144-ae52-2078d59141e5",
+          "name": "If Intent is Matched",
+          "rules": [
+            {
+              "type": "string",
+              "operator": "equal",
+              "path": "$output.intent",
+              "value": "Track Shipment"
+            }
+          ],
+          "nextTask": "d8f862f8-f4c0-4144-ae52-2078d59141e5"
+        },
+        {
+          "_id": "b6779931-a8bd-4348-9368-c2e34e836e3f-0debee55-338c-4ea7-98ed-7a908302511f",
+          "name": "If Self Loop",
+          "rules": [
+            {
+              "type": "string",
+              "operator": "equal",
+              "path": "$agent.selfLoopMiniAgent",
+              "value": "true"
+            },
+            {
+              "type": "string",
+              "operator": "equal",
+              "path": "$output.state",
+              "value": "end"
+            }
+          ],
+          "nextTask": "0debee55-338c-4ea7-98ed-7a908302511f"
+        }
+      ]
+    },
+    {
+      "_id": "d4b960ce-7b8c-4845-ac11-390d9961a53d",
+      "type": "Workflow",
+      "config": {
+        "name": "Intent - Plan Shipment",
+        "description": "Workflow for intent - Plan Shipment",
+        "workflowId": "a4ccfc12-2fbd-49c0-8a02-c7b5cce1a9d3"
+      },
+      "transitions": [
+        {
+          "_id": "d4b960ce-7b8c-4845-ac11-390d9961a53d-b6779931-a8bd-4348-9368-c2e34e836e3f",
+          "name": "Mini agent execution completed",
+          "nextTask": "b6779931-a8bd-4348-9368-c2e34e836e3f"
+        }
+      ]
+    },
+    {
+      "_id": "d8f862f8-f4c0-4144-ae52-2078d59141e5",
+      "type": "Workflow",
+      "config": {
+        "name": "Intent - Track Shipment",
+        "description": "Workflow for intent - Track Shipment",
+        "workflowId": "3c82c094-6c02-4f52-9683-138d914b6aa2"
+      },
+      "transitions": [
+        {
+          "_id": "d8f862f8-f4c0-4144-ae52-2078d59141e5-b6779931-a8bd-4348-9368-c2e34e836e3f",
+          "name": "Mini agent execution completed",
+          "nextTask": "b6779931-a8bd-4348-9368-c2e34e836e3f"
+        }
+      ]
+    },
+    {
+      "_id": "d55a2962-52d3-427e-a442-69be2d7d64fc",
+      "transitions": [
+        {
+          "_id": "d55a2962-52d3-427e-a442-69be2d7d64fc-0debee55-338c-4ea7-98ed-7a908302511f",
+          "name": "If Self Loop",
+          "rules": [
+            {
+              "type": "string",
+              "operator": "equal",
+              "path": "$agent.selfLoopMiniAgent",
+              "value": "true"
+            }
+          ],
+          "nextTask": "0debee55-338c-4ea7-98ed-7a908302511f"
+        }
+      ],
+      "type": "Output",
+      "config": {
+        "name": "Output",
+        "description": "Output the response to the user",
+        "type": "external",
+        "text": "Unable to complete task $agent.query"
+      }
+    },
+    {
+      "_id": "9b4e9b9e-1da4-46ca-89ce-830adfa85bf1",
+      "transitions": [
+        {
+          "_id": "9b4e9b9e-1da4-46ca-89ce-830adfa85bf1-0debee55-338c-4ea7-98ed-7a908302511f",
+          "name": "If Self Loop",
+          "rules": [
+            {
+              "type": "string",
+              "operator": "equal",
+              "path": "$agent.selfLoopMiniAgent",
+              "value": "true"
+            }
+          ],
+          "nextTask": "0debee55-338c-4ea7-98ed-7a908302511f"
+        }
+      ],
+      "type": "Display",
+      "config": {
+        "name": "Display",
+        "description": "Display the response to the user",
+        "type": "text",
+        "text": "$input.content"
+      }
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest"
+}

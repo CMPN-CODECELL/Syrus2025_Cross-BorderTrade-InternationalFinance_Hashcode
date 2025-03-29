@@ -1,0 +1,246 @@
+{
+  "aiPersonaIntegrationId": "cross-border-trade-and-finance-assistant-6056",
+  "version": "2.0.0",
+  "description": "AI Agent cross-border-trade-and-finance-assistant-6056 package version 2.0.0",
+  "data": {
+    "workflows": [
+      [
+        "workflows",
+        "answer-trade-questions-6793.json"
+      ],
+      [
+        "workflows",
+        "ma-query-response-8597-primary-workflow-for-query-response.json"
+      ],
+      [
+        "workflows",
+        "prepare-export-document-9276.json"
+      ],
+      [
+        "workflows",
+        "ma-export-documentation-preparation-1174-primary-workflow-for-export-documentation-preparation.json"
+      ],
+      [
+        "workflows",
+        "validate-export-documents-1587.json"
+      ],
+      [
+        "workflows",
+        "ma-export-documentation-validation-3634-primary-workflow-for-export-documentation-validation.json"
+      ],
+      [
+        "workflows",
+        "assess-compliance-and-risk-4157.json"
+      ],
+      [
+        "workflows",
+        "ma-compliance-and-risk-assessment-5950-primary-workflow-for-compliance-and-risk-assessment.json"
+      ],
+      [
+        "workflows",
+        "plan-shipment-6484.json"
+      ],
+      [
+        "workflows",
+        "track-shipment-6484.json"
+      ],
+      [
+        "workflows",
+        "ma-logistic-and-shipment-tracking-8516-primary-workflow-for-logistic-and-shipment-tracking.json"
+      ],
+      [
+        "workflows",
+        "interest-rate-negotiation-8924.json"
+      ],
+      [
+        "workflows",
+        "ma-negotiator-0849-primary-workflow-for-negotiator.json"
+      ],
+      [
+        "workflows",
+        "tariff-changes-1471.json"
+      ],
+      [
+        "workflows",
+        "ma-geopolitical-sentinel-analysis-3282-primary-workflow-for-geo-political-sentinel-analysis.json"
+      ]
+    ],
+    "models": [
+      [
+        "models",
+        "azure-gpt-4o-mini.json"
+      ],
+      [
+        "models",
+        "azure-gpt-4o.json"
+      ]
+    ],
+    "miniAgents": [
+      [
+        "miniAgents",
+        "query-response-8597.json"
+      ],
+      [
+        "miniAgents",
+        "export-documentation-preparation-1174.json"
+      ],
+      [
+        "miniAgents",
+        "export-documentation-validation-3634.json"
+      ],
+      [
+        "miniAgents",
+        "compliance-and-risk-assessment-5950.json"
+      ],
+      [
+        "miniAgents",
+        "logistic-and-shipment-tracking-8516.json"
+      ],
+      [
+        "miniAgents",
+        "negotiator-0849.json"
+      ],
+      [
+        "miniAgents",
+        "geopolitical-sentinel-analysis-3282.json"
+      ]
+    ],
+    "snippets": [
+      [
+        "snippets",
+        "products_list.json"
+      ],
+      [
+        "snippets",
+        "documents_list.json"
+      ]
+    ],
+    "ragQueries": [
+      [
+        "ragQueries",
+        "Kubera Documentation RAG.json"
+      ]
+    ],
+    "vectorStores": [
+      [
+        "vectorStores",
+        "Kubera Doc Vector Store.json"
+      ]
+    ],
+    "dataStores": [
+      [
+        "dataStores",
+        "Kubera Doc Data Store.json"
+      ]
+    ],
+    "dataSources": [
+      [
+        "dataSources",
+        "letter_of_credit",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "Bill of Exchange",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "certificate_of_origin (1)",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "certificate_of_origin",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "commercial_invoice",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "packing_list",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "tax_invoice",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "export_agreement_proforma_invoice",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "bill_of_lading",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "export_invoice_template",
+        "config.json"
+      ],
+      [
+        "dataSources",
+        "export_quotation_template",
+        "config.json"
+      ]
+    ],
+    "deploymentDependencyDataSources": [
+      [
+        "deploymentDependencyDataSources",
+        "letter_of_credit.json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "Bill of Exchange.json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "certificate_of_origin (1).json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "certificate_of_origin.json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "commercial_invoice.json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "packing_list.json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "tax_invoice.json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "export_agreement_proforma_invoice.json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "bill_of_lading.json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "export_invoice_template.json"
+      ],
+      [
+        "deploymentDependencyDataSources",
+        "export_quotation_template.json"
+      ]
+    ],
+    "aiPersonas": [
+      [
+        "aiPersonas",
+        "cross-border-trade-and-finance-assistant-6056.json"
+      ]
+    ]
+  }
+}

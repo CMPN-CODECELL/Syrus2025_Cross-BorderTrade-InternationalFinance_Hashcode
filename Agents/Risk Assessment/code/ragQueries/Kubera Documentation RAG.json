@@ -1,0 +1,11 @@
+{
+  "_id": "bc5c9f86-fb6c-44e9-8460-0d6c5612899f",
+  "enableMultishotPrompting": true,
+  "k": 5,
+  "llmId": "56feb720-adb7-464a-8e6b-fd79a510ba5b",
+  "name": "Kubera Documentation RAG",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "status": "Active",
+  "type": "MongoDB",
+  "vectorStoreId": "d9edb0ce-2020-4a0d-a1ec-e76cc411d5cb"
+}

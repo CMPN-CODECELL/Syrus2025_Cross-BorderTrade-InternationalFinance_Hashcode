@@ -1,0 +1,23 @@
+{
+  "_id": "28e95e9c-8536-4dcc-96d2-09279baa602d",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "type": "Document",
+  "config": {
+    "document": {
+      "bucketName": "developer-edition-console-prod",
+      "key": "default-app-for-account-75e042ec-6dae-4d54-978a-d420f99a50ce/data-store/dedee579-5578-4c63-a692-ed7e4de062ef/document-store/1920d3c5-6549-4e62-b741-fd974bf3fb67",
+      "storageProvider": "GoogleCloudStorage"
+    },
+    "name": "bill_of_lading",
+    "fileName": "bill_of_lading.pdf",
+    "mimeType": "application/pdf",
+    "size": 87650,
+    "chunkingParameters": {
+      "chunkingStrategy": "RecursiveCharacterSplitting",
+      "chunkSize": 1000,
+      "chunkOverlap": 200
+    }
+  },
+  "status": "Active",
+  "dataStoreName": "Kubera Doc Data Store"
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "375b221f-8773-4240-b9ac-d001285f4bec",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "type": "Document",
+  "config": {
+    "document": {
+      "bucketName": "developer-edition-console-prod",
+      "key": "default-app-for-account-75e042ec-6dae-4d54-978a-d420f99a50ce/data-store/dedee579-5578-4c63-a692-ed7e4de062ef/document-store/328cf640-42a0-4db0-a34f-bf65d14b1e36",
+      "storageProvider": "GoogleCloudStorage"
+    },
+    "name": "Bill of Exchange",
+    "fileName": "Bill of Exchange.pdf",
+    "mimeType": "application/pdf",
+    "size": 21745,
+    "chunkingParameters": {
+      "chunkingStrategy": "RecursiveCharacterSplitting",
+      "chunkSize": 1000,
+      "chunkOverlap": 200
+    }
+  },
+  "status": "Active",
+  "dataStoreName": "Kubera Doc Data Store"
+}

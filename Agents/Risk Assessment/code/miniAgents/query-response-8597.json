@@ -1,0 +1,27 @@
+{
+  "_id": "8c2dc852-a01b-4363-a23b-1b3c0ea5cad1",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "query-response-8597",
+  "intentClassification": {
+    "modelId": "4cf651d9-edf3-455f-a22e-53cc67fcc07b"
+  },
+  "intents": [
+    {
+      "_id": "answer-trade-questions-8597",
+      "name": "Answer Trade Questions",
+      "description": "Provides answers to user queries about trade regulations, tariffs, market conditions, and other trade-related information.",
+      "examples": [
+        "What are the current tariffs for exporting goods to the EU?",
+        "Can you provide information on trade regulations in China?",
+        "What are the market conditions for electronics in South America?"
+      ],
+      "flowType": "Workflow",
+      "workflowId": "4bd9d950-d3b4-4c04-b7b6-9bdc41583300"
+    }
+  ],
+  "name": "Query Response",
+  "primaryWorkflowId": "3134c168-f4e8-408a-b117-94da1aae3bb3",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "scope": "Handles queries related to answering trade-related questions, providing information on trade regulations, tariffs, and market conditions.",
+  "status": "Active"
+}

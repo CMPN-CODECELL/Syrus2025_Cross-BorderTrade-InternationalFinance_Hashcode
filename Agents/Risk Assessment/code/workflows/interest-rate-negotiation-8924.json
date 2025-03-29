@@ -1,0 +1,24 @@
+{
+  "_id": "a7c7d04a-0879-47f7-bee2-2f9a6e774077",
+  "aiPersonaId": "84d8975f-533b-4f88-bb2c-afc9fa2dcf9d",
+  "integrationId": "interest-rate-negotiation-8924",
+  "name": "Workflow for Interest Rate Negotiation",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "startTaskId": "5ddb2e52-e7de-48ba-b030-b75d76ca578e",
+  "status": "Active",
+  "tasks": [
+    {
+      "_id": "5ddb2e52-e7de-48ba-b030-b75d76ca578e",
+      "transitions": [],
+      "type": "Display",
+      "config": {
+        "name": "Display",
+        "description": "Display the response to the user",
+        "type": "text",
+        "text": "Hi there! Intent $input.intent has been matched"
+      }
+    }
+  ],
+  "type": "Conversational",
+  "version": "latest"
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "8b69e4c9-a04a-4877-b96a-eec47df6e959",
+  "publisherAccountId": "75e042ec-6dae-4d54-978a-d420f99a50ce",
+  "type": "Document",
+  "config": {
+    "document": {
+      "bucketName": "developer-edition-console-prod",
+      "key": "default-app-for-account-75e042ec-6dae-4d54-978a-d420f99a50ce/data-store/dedee579-5578-4c63-a692-ed7e4de062ef/document-store/582a337d-b079-476e-9ce8-94c5eb1b9632",
+      "storageProvider": "GoogleCloudStorage"
+    },
+    "name": "certificate_of_origin (1)",
+    "fileName": "certificate_of_origin (1).pdf",
+    "mimeType": "application/pdf",
+    "size": 59493,
+    "chunkingParameters": {
+      "chunkingStrategy": "RecursiveCharacterSplitting",
+      "chunkSize": 1000,
+      "chunkOverlap": 200
+    }
+  },
+  "status": "Active",
+  "dataStoreName": "Kubera Doc Data Store"
+}
