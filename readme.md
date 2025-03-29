@@ -2,7 +2,7 @@
 | **Resource**          | **Link**  |
 |----------------------|----------------------------------------------------------------|
 |  Documentation    | [Implemented Features Docs](https://docs.google.com/document/d/1FZ90SyxTMGsVLiVWltbq9KAj_1_ZmnpgHi0lbHDvE6o/edit?usp=sharing) |
-|  YouTube Video    | [Implemented Features Video]() |
+|  YouTube Video    | [Implemented Features Video](https://youtu.be/yC98yoD1A7A) |
 
 
 ## Mentoring Round 1: Key Discussion and Suggested Changes Details
